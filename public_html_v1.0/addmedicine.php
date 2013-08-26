@@ -118,28 +118,28 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01">Image</label>
                   	<div class="controls">
-                    	<input type="file" class="input-medium" name="medicineimage" id="medicineimage">
+                    	<input type="file" height="200px;" class="input-xlarge"  name="medicineimage" id="medicineimage">
                     	</div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01">Notes</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your notes" name="notes" rows="3" id="notes" class="input-xlarge"></textarea>
+                    	<textarea placeholder=" please enter your notes" name="notes" rows="3" id="notes" class="input-xlarge"></textarea>
                     	</div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01">Side Effects</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your comments" name="sideeffects" rows="3" id="sideeffects" class="input-xlarge"></textarea>
+                    	<textarea placeholder=" please enter your comments" name="sideeffects" rows="3" id="sideeffects" class="input-xlarge"></textarea>
                     	</div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01">Medicine Direction</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your comments" name="medicinedirection" rows="3" id="medicinedirection" class="input-xlarge"></textarea>
+                    	<textarea placeholder=" please enter your comments" name="medicinedirection" rows="3" id="medicinedirection" class="input-xlarge"></textarea>
                     	</div>
                 	</div>
 
