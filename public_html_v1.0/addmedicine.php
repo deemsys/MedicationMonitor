@@ -118,7 +118,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01">Image</label>
                   	<div class="controls">
-                    	<input type="file" height="200px;" class="input-xlarge"  name="medicineimage" id="medicineimage">
+                    	<input type="file" style="width: 90px;" onchange="this.style.width = '100%';" class="input-xlarge"  name="medicineimage" id="medicineimage">
                     	</div>
                 	</div>
 
