@@ -303,7 +303,7 @@ else
                 	</div>-->
 		        </form>
 
-		<legend>Add Indipendent Questionnaire</legend>	
+		<legend>Add Independent Questionnaire</legend>
          		<form action="updatedailyind.php" method="POST">
               		<div class="control-group"><input type="hidden" name="assesid" value="<?php echo $_GET['id']; ?>">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Question</label>
