@@ -66,7 +66,10 @@ if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
 			$rand=rand(0,10000);
 			$headerimage ='uploadimages/'.$rand. $_FILES['medicineimage']['name'];
 			//  echo  $headerimage; exit;
+            $headerimage_admin='admin/uploadimages/'.$rand.$_FILES['medicineimage']['name'];
 			move_uploaded_file($_FILES['medicineimage']['tmp_name'],$headerimage);
+           // move_uploaded_file($_FILES['medicineimage']['tmp_name'],$headerimage_admin);
+            copy($headerimage,$headerimage_admin);
 		}else{
 			$_SESSION['error']['medicineid'] = "Image - Please Upload jpg, gif, png file only";
 			header("Location:addmedicine.php");
