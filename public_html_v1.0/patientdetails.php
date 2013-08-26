@@ -142,7 +142,9 @@ $('.clsmedipack .abc').on('click',function(){
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Patient Details</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="javascript:history.go(-1);">Patient Details</a><span class="divider">/</span></li>
+        <li class="active"><?php echo $patientrecords['pid_patient_username'];?><a></a></li>
+     <i class="icon-chevron-left pull-right"></i>
       </ul>
     <div class="container-fluid">
     
@@ -174,7 +176,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 ?>
 		<div class="page-header">
 		<div class="pull-right">
- 		<a href="addmedtime.php?patid=<?php echo $id; ?>" class="btn">Add Medicine</a> 
+ 		<a href="addmedtime.php?patid=<?php echo $id; ?>" class="btn">Add Medicine</a>
 <!-- 		<a href="#addmedicine" class="btn" data-toggle="modal">Add Medicine</a> -->
 		<a href="#addreminder" class="btn" data-toggle="modal">Add Reminder</a>
 		<a href="#addassessment" class="btn" data-toggle="modal">Add Assessment</a>
@@ -187,7 +189,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<a title="Delete Patient" href="javascript:validate(<?php echo $_GET['id']; ?>);" class="btn"><i class="icon-trash"></i></a> </div>
 
 			<h2>Patient Name : <?php echo $patientrecords['pid_patient_username']; ?></h2>
-			<h2>Age : <?php echo $GLOBALS['age_group'][$patientrecords['pid_patient_age']].",  ".$patientrecords['pid_patient_sex']; ?></h2>
+			<h2>Age : <?php echo $GLOBALS['age_group'][$patientrecords['pid_patient_age']].",".$patientrecords['pid_patient_sex']; ?></h2>
 
 
 					</div>

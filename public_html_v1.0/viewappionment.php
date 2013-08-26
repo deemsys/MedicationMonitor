@@ -54,24 +54,32 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                   <tbody>
 <?php
 
+$num=0;
+
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_appointment_details";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "viewappionment.php"; 	
-	$limit = 10; 
+	$limit = 10;
 	$stages = 3;
+//Removed by suresh
+	//$page = mysql_escape_string($_GET['page']);
+//added by suresh
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
 
-	$page = mysql_escape_string($_GET['page']);
 	if($page)
 	{
-		$start = ($page - 1) * $limit; 
+		$start = ($page - 1) * $limit;
 	}
 	else
 	{
-		$start = 0;	
+		$start = 0;
 	}
 
 	
@@ -99,13 +107,14 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 	$queryapp = mysql_query($sqlapp);*/
 	
 
+//Changed by suresh
+	for($i=1;$i<=mysql_num_rows($queryapp);$i++)
 
-		for($i=1;$i<=mysql_num_rows($queryapp);$i++)
 		{
 			$recordsapp = mysql_fetch_array($queryapp)
 ?>
 			<tr>
-                      <td><?php echo $i ?></td>
+                      <td><?php echo $start+$i ?></td>
                       <td><?php echo $recordsapp['app_appointment_date']; ?></td>
                       <td><?php echo $recordsapp['app_appointment_note']; ?></td>
 

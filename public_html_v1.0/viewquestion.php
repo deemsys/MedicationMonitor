@@ -77,7 +77,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 	$query11 = mysql_query($sql11);
 	
-
+$i=0;
 	while($records11 = mysql_fetch_array($query11))
 	{
 

@@ -12,7 +12,8 @@ include('header.php');
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
         <li class="active">My Patients</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
-    <div class="container-fluid">
+
+ <div class="container-fluid">
 
       <div class="row-fluid">
         <!--/span-->
@@ -26,7 +27,24 @@ include('header.php');
             <div class="page-header">
               <h2>List of my Patients </h2>
             </div>
-	<table class="table">
+            <?php
+
+            if(isset($_SESSION['success']) && $_SESSION['success']!='')
+
+            {
+
+                echo '<div class="alert alert-success">
+
+        <button data-dismiss="alert" class="close" type="button">×</button>
+
+        <strong>'.$_SESSION['success'].'.</strong>
+
+      </div>';
+            }
+
+            ?>
+
+            <table class="table">
                   <thead>
                     <tr>
                       <th> Patients Name</th>
@@ -42,16 +60,19 @@ include('config.php');
 
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_relation_providerid = '".$_SESSION['userid']."' AND rs_relation_status = '1'";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+$num=0;
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "mypatientlist.php"; 	
-	$limit = 10; 
+	$limit = 6;
 	$stages = 3;
-
-	$page = mysql_escape_string($_GET['page']);
-	if($page)
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
+		if($page)
 	{
 		$start = ($page - 1) * $limit; 
 	}
@@ -290,6 +311,8 @@ function validate(val)
   </body>
 </html>
 <?php
+    unset($_SESSION['success']);
+unset($_SESSION['error']);
 }
 else
 {

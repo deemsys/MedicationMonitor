@@ -1,10 +1,8 @@
 <?php
 session_start();
-$_SESSION['userid'] =5;
-if(true)
+
+if($_SESSION['userid']!='')
 {
-
-
 include('header.php');
 ?>
 

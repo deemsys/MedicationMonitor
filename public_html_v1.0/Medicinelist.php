@@ -52,25 +52,28 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                   <tbody>
 <?php
 include('config.php');
+$num=0;
 
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_medication_details";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123=$total_pages[$num];
 
 	$targetpage = "Medicinelist.php"; 	
-	$limit = 10; 
+	$limit =6;
 	$stages = 3;
-
-	$page = mysql_escape_string($_GET['page']);
+if(isset($_GET['page']))
+	$page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
 	if($page)
 	{
-		$start = ($page - 1) * $limit; 
+		$start = ($page - 1) * $limit;
 	}
 	else
 	{
-		$start = 0;	
+		$start = 0;
 	}
 
 	
@@ -89,7 +92,7 @@ include('config.php');
 	$LastPagem1 = $lastpage - 1;					
 
 	$paginate = "";
-
+$i=0;
 		while($recordsmedicine = mysql_fetch_array($querymedicine))
 		{
 			

@@ -1,16 +1,16 @@
 <?php
 
 
-//$host = "localhost";
-//$DB_usr_name = "medsmoni_monitor";
-//$DB_usr_pswd = "monitor";
-//$DB_name = "medsmoni_medicationmonitor"; 
+$host = "localhost";
+$DB_usr_name = "root";
+$DB_usr_pswd = "";
+$DB_name = "medsmoni_medicationmonitor"; 
 
 
- $host = "localhost";
- $DB_usr_name = "root";
- $DB_usr_pswd = "";
- $DB_name = "medsmoni_medicationmonitor";
+// $host = "localhost";
+// $DB_usr_name = "root";
+// $DB_usr_pswd = "";
+// $DB_name = "medication_monitor";
 
 $con = mysql_connect($host,$DB_usr_name,$DB_usr_pswd);
 mysql_select_db($DB_name,$con);

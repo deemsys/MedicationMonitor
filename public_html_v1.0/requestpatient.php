@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['userid'] != '')
+if(isset($_SESSION['userid']))
 {
 
 include('header.php');
@@ -58,18 +58,21 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 <?php
 include('config.php');
 
-
+$num=0;
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_relation_providerid = '".$_SESSION['userid']."' AND rs_relation_status = '0'"; 
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123 = $total_pages[$num];
 
-	$targetpage = "mypatientlist.php"; 	
-	$limit = 10; 
+	$targetpage = "requestpatient.php";
+	$limit = 6;
 	$stages = 3;
 
-	$page = mysql_escape_string($_GET['page']);
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
 	if($page)
 	{
 		$start = ($page - 1) * $limit; 

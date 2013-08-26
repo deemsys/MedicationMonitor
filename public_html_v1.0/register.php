@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['userid'] != '')
+if(true)
 {
 
 
@@ -47,7 +47,7 @@ else
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Providers</a> <span class="divider">/</span></li>
+        <li><a href="providerlist.php">Providers</a> <span class="divider">/</span></li>
         <li class="active">Register</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
@@ -87,27 +87,33 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			</div>
 			<div id="global" class="tab-pane fade active in">
          		<form class="form-horizontal" action="updateuser.php" method="POST" name="dd1" id="dd1">
-              		<fieldset>
+    <?php
+    if(!isset($_SESSION['error'])&&!isset($_SESSION['success']))
+    {
+        ?>
+              		<div>
               		<legend>Provider Registration</legend>
               			<p align="right"><span style=" color : red;">*</span>Required Field Can't be blank</p>
 			<div class="control-group">
+
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>User Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['username']; ?>" name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+
+                    	<input type="text" class="input-medium" name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
                     	</div>
                 	</div>
 
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>First Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['fname']; ?>" name="fname" id="fname">
+                    	<input type="text" class="input-medium" name="fname" id="fname">
                     	</div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01">Last Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['lname']; ?>" name="lname" id="lname">
+                    	<input type="text" class="input-medium" name="lname" id="lname">
                     	</div>
                 	</div>
 
@@ -136,14 +142,15 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Age</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['age']; ?>" name="age" id="age">
+
+                    	<input type="text" class="input-medium" name="age" id="age">
                     	</div>
                 	</div>
 
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email Id</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['email']; ?>" name="email" id="email">
+                    	<input type="text" class="input-medium" name="email" id="email">
                     	</div>
                 	</div>
 
@@ -151,7 +158,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Skype Id</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['skype']; ?>" name="skype" id="skype">
+                    	<input type="text" class="input-medium" name="skype" id="skype">
                     	</div>
                 	</div>
 
@@ -159,7 +166,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Facetime Id</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['facetime']; ?>" name="facetime" id="facetime">
+                    	<input type="text" class="input-medium" name="facetime" id="facetime">
                     	</div>
                 	</div>
 
@@ -167,7 +174,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Mobile</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['mobile']; ?>" name="mobile" id="mobile">
+                    	<input type="text" class="input-medium" name="mobile" id="mobile">
                     	</div>
                 	</div>
 
@@ -182,7 +189,114 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 		                  <button type="submit" class="btn btn-primary">Submit</button>
 		                  
 		                </div>
-		              	</fieldset>
+		              	</div>
+        <?php
+    }
+    else
+    {
+       ?>
+        <div>
+            <legend>Provider Registration</legend>
+            <p align="right"><span style=" color : red;">*</span>Required Field Can't be blank</p>
+            <div class="control-group">
+
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>User Name</label>
+                <div class="controls">
+
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['username'];?>" name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>First Name</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['fname']; ?>" name="fname" id="fname">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01">Last Name</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['lname']; ?>" name="lname" id="lname">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Password</label>
+                <div class="controls">
+                    <input type="password" class="input-medium" name="pswd" id="pswd">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Confirm Password</label>
+                <div class="controls">
+                    <input type="password" class="input-medium" name="cpswd" id="cpswd">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Sex</label>
+                <div class="controls">
+                    <label class="radio"><input type="radio" name="sex" value="Male"> Male</label>
+                    <label class="radio"><input type="radio" name="sex" value="Female"> Female</label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Age</label>
+                <div class="controls">
+
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['age']; ?>" name="age" id="age">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Email Id</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['email']; ?>" name="email" id="email">
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Skype Id</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['skype']; ?>" name="skype" id="skype">
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Facetime Id</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['facetime']; ?>" name="facetime" id="facetime">
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Mobile</label>
+                <div class="controls">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['mobile']; ?>" name="mobile" id="mobile">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input01"><span style=" color : red;">*</span>Address</label>
+                <div class="controls">
+                    <textarea placeholder=" please Enter your Address" name="address" rows="3" id="address" class="input-xlarge"></textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+        </div>
+        <?php
+    }
+        ?>
 		            	</form>
 						</div>                    <!-- End of Payment Tabs -->	
 

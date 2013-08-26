@@ -66,7 +66,7 @@ if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
 	$records12 = mysql_fetch_array($query12);
 
 	
-	$from = "Medication Monitor";
+	$from = "rsureshbecse@gmail.com";
 
 	$tomail = $records['ud_email_id'];
 

@@ -23,7 +23,9 @@ $id = $_GET['id'];
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Provider Details</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="javascript:history.go(-1);">Provider Details</a></li><span class="divider">/</span>
+         <li class="active"><?php echo $providerrecords['ud_username'];?></li>
+         <i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
@@ -61,7 +63,7 @@ $id = $_GET['id'];
 					<tr>
 						<td>Facetime Id </td>
 						<td><?php echo $providerrecords['ud_facetime_id']; ?></td>
-						<td><a href="facetime:<?php echo $patientrecords['ud_facetime_id']; ?>" style="margin-left : 10px;"><img src="assets/img/Facetime.png" title="Face Time"></a></td>
+						<td><a href="facetime:<?php echo $providerrecords['ud_facetime_id']; ?>" style="margin-left : 10px;"><img src="assets/img/Facetime.png" title="Face Time"></a></td>
 					</tr>
 
 					<tr>

@@ -88,14 +88,30 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Medicine Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['medicinename']; ?>" name="medicinename" id="medicinename">
+                        <?php
+                        if(isset($_SESSION['values']['medicinename']))
+                        {
+                         ?>
+                             <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['medicinename'];?>" name="medicinename" id="medicinename">
+                            <?php
+                        }
+
+                        else
+                        {
+                          ?>
+                            <input type="text" class="input-medium" name="medicinename" id="medicinename">
+                            <?php
+                        }
+                            ?>
+
+
                     	</div>
                 	</div>
 
 		<!--	<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Medicine Id</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['medicineid']; ?>" name="medicineid" id="medicineid">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                    	<input type="text" class="input-medium" value="<!--?php echo $_SESSION['values']['medicineid']; ?>" name="medicineid" id="medicineid">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
                     	</div>
                 	</div>  -->
 
@@ -132,9 +148,9 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 		                  <button type="submit" class="btn btn-primary">Submit</button>
 		                  
 		                </div>
-		              	</fieldset>
+		              	</div>
 		            	</form>
-						</div>                    <!-- End of Payment Tabs -->	
+						</div>                    <!-- End of Payment Tabs -->
 
 					
 			</div>          </div><!--/row-->

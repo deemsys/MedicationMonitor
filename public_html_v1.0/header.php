@@ -43,16 +43,17 @@
 require("config.php");
 
 
-$query = mysql_query("select * from tbl_user_details where ud_user_id ='".$_SESSION['userid']."';");
-
-$countuser = mysql_num_rows($query);
-
-$records = mysql_fetch_array($query);
 
 
 
-if(true)//($_SESSION['userid'] != '')
+
+if(isset($_SESSION['userid']))
 {
+    $query = mysql_query("select * from tbl_user_details where ud_user_id ='".$_SESSION['userid']."';");
+
+    $countuser = mysql_num_rows($query);
+
+    $records = mysql_fetch_array($query);
 ?>
 
 
@@ -75,37 +76,48 @@ if(true)//($_SESSION['userid'] != '')
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Patients <?php if($count11 !=0){ ?><span class="badge badge-important"><?php echo $count11; ?></span><?php } ?><b class="caret"></b></a>
 		<ul class="dropdown-menu">
 			<li><a href="Patientregister.php">Add Patient</a></li>
-			<!--<li><a href="patientlist.php">List of Patients</a></li>-->
+			<!--enable by suresh-->
+            <li><a href="patientlist.php">List of Patients</a></li>
+            <!--enable by suresh-->
 			<li><a href="mypatientlist.php">My Patients</a></li>
 			<li<?php if ($count11) { ?> style="background-color:#B94A48; font-size:15px;font-weight:bold;"><?php } ?><a href="requestpatient.php">Request Pending</a></li>
 	</li>
 		</ul>
 
-            
-           <!-- <li class="dropdown">
+    <!--enable by suresh-->
+           <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Providers <b class="caret"></b></a>
               <ul class="dropdown-menu">
               <li><a href="providerlist.php">List of Providers</a></li>
               </li>
-              </ul>-->
+              </ul><!--enable by suresh-->
 
-<!-- 		<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li> -->
-		
+
+                   <!--enable by suresh-->
+	<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li>
+
+                   <!--enable by suresh-->
+
                 <li><a href="viewassessment.php"><i class="icon-ok-circle icon-white"></i> Assessment </a></li>
 
-<!-- 		<li><a href="viewappionment.php"><i class="icon-time icon-white"></i> Appointment</a></li> -->
 
-<!--            <li><a href="assessment.php">Daily Questionnaire</a></li>
+    <!--enable by suresh-->
+
+		<li><a href="viewappionment.php"><i class="icon-time icon-white"></i> Appointment</a></li>
+
+           <li><a href="assessment.php">Daily Questionnaire</a></li>
                 <li><a href="assessmentweek.php">Weekly Questionnaire</a></li>
-                <li><a href="assessmentmon.php">Monthly Questionnaire</a></li>-->
+                <!--<li><a href="assessmentmon.php">Monthly Questionnaire</a></li>-->
 
+
+    <!--enable by suresh-->
             </li>
           </ul>
 
 <?php
 }
 
-if(true)//($_SESSION['userid'] == '')
+if(!isset($_SESSION['userid']))
 {
 
 ?>

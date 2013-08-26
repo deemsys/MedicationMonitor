@@ -1,6 +1,6 @@
 <?php
-echo "<pre>";
-  print_r($_POST);  exit;
+//echo "<pre>";
+  //print_r($_POST);  exit;
 
 session_start();
 require("config.php");

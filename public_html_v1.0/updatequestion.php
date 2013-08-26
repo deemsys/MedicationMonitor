@@ -2,7 +2,7 @@
 session_start();
 
 
-if($_SESSION['userid'] != '')
+if(isset($_SESSION['userid']))
 {
 
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
  
     var counter = 1;
  
-    $("#addButton").live('click',function () {
+    $("#addButton").click(function () {
 
 	if(counter>10){
             alert("Only 10 textboxes allow");
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	var id = $(this).attr('name');
 //  		var ince += 1;
 	//var dec	= counter - 1;
-var dec = $("#TextBoxesGroup_"+id+" .clscounter").length + 1;
+var dec = $("#TextBoxesGroup_"+id+".clscounter").length + 1;
 //   alert(counter);
         var divAfter = "#TextBoxDiv"+dec;
 	var newTextBoxDiv = $(document.createElement('div'))
@@ -308,28 +308,49 @@ else
               		<div class="control-group"><input type="hidden" name="assesid" value="<?php echo $_GET['id']; ?>">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Question</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your Question" name="question_<?php echo $_REQUEST['str']; ?>" rows="3" id="question" class="input-xlarge"></textarea>
+
+                        <!--?php echo $_REQUEST['str']; ?>-->
+                    	<textarea placeholder=" please Enter your Question" name="question_" rows="3" id="question" class="input-xlarge"></textarea>
                     	</div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Answer Type</label>
                   	<div class="controls">
-			<label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="single"> Single Choice</label>
-			<label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="multi"> Multi Choice</label>
+                        <?php
+                        if(isset($_REQUEST['str']))
+                        {
+                        ?>
+                        <label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="single"> Single Choice</label>
+			<label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="multi"> Multi Choice</label>'
+                        <?php
+                        }
+                        else
+                        {
+                        ?>
+                            <label class="radio"><input type="radio" name="ansoption" value="single"> Single Choice</label>
+                            <label class="radio"><input type="radio" name="ansoption"  value="multi"> Multi Choice</label>'
+
+                            <?php
+                        }
+
+                            ?>
                     	</div>
                 	</div>
 
 
-			<div class="control-group" id='TextBoxesGroup_<?php echo $_REQUEST['str']; ?>'>
-			
+			<div class="control-group" id='TextBoxesGroup'>
+                <div id="TextBoxDiv1">
+
+                </div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01"></label>
                   	<div class="controls">
-			<input type='button' class="btn" value='Add Answer' id='addButton' name="<?php echo $_REQUEST['str']; ?>">
-			<input type='button' class="btn" value='Remove Answer' id='removeButton' name="<?php echo $_REQUEST['str']; ?>">
+
+			<input type='button' class="btn" value='Add Answer' id='addButton'>
+			<input type='button' class="btn" value='Remove Answer' id='removeButton'>
                     	</div>
                 	</div>
 
