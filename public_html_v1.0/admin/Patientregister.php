@@ -11,7 +11,7 @@ include('header.php');
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="/admin/patientlist.php">Patient</a> <span class="divider">/</span></li>
+        <li><a href="patientlist.php">Patient</a> <span class="divider">/</span></li>
         <li class="active">Register</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">

@@ -47,7 +47,7 @@ else
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="/admin/providerlist.php">Providers</a> <span class="divider">/</span></li>
+        <li><a href="providerlist.php">Providers</a> <span class="divider">/</span></li>
         <li class="active">Register</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
@@ -138,16 +138,39 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                     	</div>
                 	</div>
 
-              		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Age</label>
-                  	<div class="controls">
 
-                    	<input type="text" class="input-medium" name="age" id="age">
-                    	</div>
-                	</div>
+                        <div class="control-group">
+                            <label for="select01" class="control-label"><span style=" color : red;">*</span>Age</label>
+                            <div class="controls">
+                                <select id="select01" name="age" class="input-medium">
+                                    <option>Age</option>
+                                    <option>05 to 10</option>
+                                    <option>11 to 15</option>
+                                    <option>16 to 20</option>
+                                    <option>21 to 25</option>
+                                    <option>26 to 30</option>
+                                    <option>31 to 35</option>
+                                    <option>36 to 40</option>
+                                    <option>41 to 45</option>
+                                    <option>46 to 50</option>
+                                    <option>51 to 55</option>
+                                    <option>56 to 60</option>
+                                    <option>61 to 65</option>
+                                    <option>66 to 70</option>
+                                    <option>71 to 75</option>
+                                    <option>76 to 80</option>
+                                    <option>81 to 85</option>
+                                    <option>86 to 90</option>
+                                    <option>91 to 95</option>
+                                    <option>96 to 100</option>
+                                </select>
+                            </div>
+                        </div>
+                  	
+
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email Id</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" name="email" id="email">
                     	</div>
@@ -178,11 +201,51 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Address</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Address1</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your Address" name="address" rows="3" id="address" class="input-xlarge"></textarea>
+                    	<textarea placeholder=" please Enter your Address" name="address1" rows="3" id="address" class="input-xlarge"></textarea>
                     	</div>
                 	</div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="input01">Address2</label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" name="address2" id="address2">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="select01" class="control-label"><span style=" color : red;">*</span>Country</label>
+                            <div class="controls">
+                                <select id="select01" name="country" class="input-large">
+                                    <option>Select Country</option>
+                                    <option>USA</option>
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label" for="input01"><span style=" color : red;">*</span>State</label>
+                            <div class="controls">
+                                <input type="text" class="input-medium"  name="state" id="state">
+                        </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="input01"><span style=" color : red;">*</span>City</label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" name="city" id="city">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="input01"><span style=" color : red;">*</span>Postal code</label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" name="zipcode" id="zipcode">
+                            </div>
+                        </div>
 
       					<div class="form-actions">
 		                  <button type="submit" class="btn btn-primary">Submit</button>
@@ -243,10 +306,10 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-			<label for="select01" class="control-label"><span style=" color : red;">*</span>Select Age</label>
+			<label for="select01" class="control-label"><span style=" color : red;">*</span>Age</label>
 			<div class="controls">
-			<select id="select01" name="age" class="input-small">
-			<option>Select Age</option>
+			<select id="select01" name="age" class="input-medium">
+			<option>Age</option>
 			<option>05 to 10</option>
 			<option>11 to 15</option>
 			<option>16 to 20</option>
@@ -271,7 +334,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email Id</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['email']; ?>" name="email" id="email">
                     	</div>
@@ -317,7 +380,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
 			<div class="control-group">
-			<label for="select01" class="control-label"><span style=" color : red;">*</span>Select Country</label>
+			<label for="select01" class="control-label"><span style=" color : red;">*</span>Country</label>
 			<div class="controls">
 			<select id="select01" name="country" class="input-large">
 			<option>Select Country</option>
@@ -343,7 +406,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Zipcode</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Postal code</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['zipcode']; ?>" name="zipcode" id="zipcode">
                     	</div>
