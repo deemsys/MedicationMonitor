@@ -61,6 +61,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                       <th> </th>
                       <th> Audio </th>
                       <th> Notes </th>
+                      <th> Download </th>
 
                     </tr>
                   </thead>

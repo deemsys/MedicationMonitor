@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+if(isset($_SESSION['adminid']))
 {
 
 
@@ -211,7 +211,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 	$sqlmed = "SELECT r.*, p.* FROM tbl_relationship_details as r , tbl_patient_details as p WHERE r.rs_relation_providerid = '".$id."' AND p.pid_patient_id  = r.rs_relation_patientid ORDER BY p.pid_patient_username ASC";
 
-
+        $k=0;
 	$querymed = mysql_query($sqlmed);
 
 	while($medrecords = mysql_fetch_array($querymed))
@@ -254,7 +254,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
+    <script src="assets/js/jquery.js"></script>
     <script src="assets/js/transition.js"></script>
     <script src="assets/js/alert.js"></script>
     <script src="assets/js/modal.js"></script>

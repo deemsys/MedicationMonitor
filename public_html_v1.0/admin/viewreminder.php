@@ -4,7 +4,10 @@ error_reporting(0);
 
 session_start();
 
-if($_SESSION['adminid'] != '')
+
+
+if(isset($_SESSION['adminid']))
+
 {
 
 
@@ -76,7 +79,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 $today = date('Y-m-d');
 	include('config.php');
 
-	if($_GET['remindersearch'] != '')
+	if(isset($_GET['remindersearch']))
 	{
 		$searchword.=' WHERE rd_reminder_name LIKE "%'.$_GET['remindersearch'].'%" OR rd_patient_name LIKE "%'.$_GET['remindersearch'].'%" AND rd_reminder_dateandtime >="'.$today.'"';
 	}
@@ -84,17 +87,32 @@ $today = date('Y-m-d');
 	{
 		$searchword = ' WHERE rd_reminder_dateandtime >="'.$today.'"';
 	}
+$num=0;
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_reminder_details".$searchword."";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
 
-	$recordsreminder123 = $total_pages[num];
+
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
+
+
+
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "viewreminder.php"; 	
 	$limit = 5; 
 	$stages = 3;
 
-	$page = mysql_escape_string($_GET['page']);
+
+//removed by suresh
+	//$page = mysql_escape_string($_GET['page']);
+
+
+//added by suresh
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
+//End
 	if($page)
 	{
 		$start = ($page - 1) * $limit; 

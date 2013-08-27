@@ -12,7 +12,8 @@ include('config.php');
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Appointment</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li class="active">Appointment</li><span class="divider">/</span></li>
+        <li class="active">View Appointment</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
@@ -43,17 +44,25 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
  
 <?php
 
+$num=0;
+
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_appointment_details";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "viewappionment.php";
 	$limit = 10; 
 	$stages = 3;
+//Removed by suresh
+	//$page = mysql_escape_string($_GET['page']);
+//added by suresh
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
 
-	$page = mysql_escape_string($_GET['page']);
 	if($page)
 	{
 		$start = ($page - 1) * $limit;

@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+if(isset($_SESSION['adminid']))
+
 {
 
 
@@ -144,7 +145,10 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 		                  <button type="submit" class="btn btn-primary">Submit</button>
 		                </div>
 
-		              	</fieldset>
+
+
+		              	</div>
+
 		            	</form>
 
 			</div>

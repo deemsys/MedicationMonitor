@@ -341,7 +341,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 		</div>
 
 <?php
-
+$b=1;
 $b++;
 	
 if($b == 2)

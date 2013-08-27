@@ -89,7 +89,23 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Medicine Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['medicinename']; ?>" name="medicinename" id="medicinename">
+                        <?php
+                        if(isset($_SESSION['values']['medicinename']))
+                        {
+                         ?>
+                             <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['medicinename'];?>" name="medicinename" id="medicinename">
+                            <?php
+                        }
+
+                        else
+                        {
+                          ?>
+                            <input type="text" class="input-medium" name="medicinename" id="medicinename">
+                            <?php
+                        }
+                            ?>
+
+
                     	</div>
                 	</div>
 
@@ -103,7 +119,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01">Image</label>
                   	<div class="controls">
-                    	<input type="file" class="input-medium" name="medicineimage" id="medicineimage" >
+                    	<input type="file" style="width: 90px;" onchange="this.style.width = '100%';" class="input-xlarge"  name="medicineimage" id="medicineimage">
                     	</div>
                 	</div>
 
@@ -133,7 +149,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 		                  <button type="submit" class="btn btn-primary">Submit</button>
 		                  
 		                </div>
-		              	</fieldset>
+		              	</div>
 		            	</form>
 						</div>                    <!-- End of Payment Tabs -->	
 

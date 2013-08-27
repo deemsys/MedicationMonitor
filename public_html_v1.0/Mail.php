@@ -65,7 +65,6 @@ LASTMOD
 
 class Lib_Mail
 {
-
 	/*
 	list of To addresses
 	@var	array
@@ -142,6 +141,7 @@ Define the subject line of the email
 */
 function Subject( $subject )
 {
+//echo $subject; exit;
 	$this->xheaders['Subject'] = strtr( $subject, "\r\n" , "  " );
 }
 
@@ -155,6 +155,7 @@ set the sender of the mail
  
 function From( $from )
 {
+//echo $from; exit;
 
 	if( ! is_string($from) ) {
 		echo "Class Mail: error, From is not a string";
@@ -201,7 +202,7 @@ set the mail recipient
 
 function To( $to )
 {
-
+//echo $to; exit;
 	// TODO : test validité sur to
 	if( is_array( $to ) )
 		$this->sendto= $to;
@@ -259,9 +260,11 @@ function Bcc( $bcc )
  */
 function Body( $body, $charset="" )
 {
+//echo $body; exit;
 	$this->body = $body;
 	
 	if( $charset != "" ) {
+ //               $this->charset = strtr( $subject, "\r\n" , "  " );
 		$this->charset = strtolower($charset);
 		if( $this->charset != "us-ascii" )
 			$this->ctencoding = "8bit";
@@ -383,10 +386,10 @@ function Send()
 	$this->BuildMail();
 	
 	$this->strTo = implode( ", ", $this->sendto );
-	
+
 	// envoie du mail
 	$res = @mail( $this->strTo, $this->xheaders['Subject'], $this->fullBody, $this->headers );
-	
+
 }
 
 

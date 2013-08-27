@@ -5,6 +5,27 @@
 session_start();
 require("config.php");
 
+
+//Added by suresh
+$mobile = $_POST['mobile'];
+
+$mobcheck = "SELECT * FROM tbl_patient_details WHERE pid_patient_mobile='$mobile'";
+
+$sqlcheck_mob = mysql_query($mobcheck);
+
+$sqlpatient_mob = mysql_fetch_array($sqlcheck_mob);
+
+$avai_mob = mysql_num_rows($sqlcheck_mob);
+//End
+
+
+
+
+
+
+
+
+
 $patient_id = $_GET['id'];
 
 foreach($_POST as $key=>$value)
@@ -40,10 +61,11 @@ if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
 	$_SESSION['error']['facetime'] = "Facetime Id - Required Field Can't be blank";*/
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
-	$_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
-
-elseif(!eregi("^([0-9])+$",$_POST['mobile']))
-	$_SESSION['error']['mobile'] = "Mobile - Only Allowed Numbers";
+    $_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
+elseif(!eregi("^([7-9]{1})([0-9]{9})$",$_POST['mobile']))
+    $_SESSION['error']['mobile'] = "Mobile - Invalid Mobile Number";
+elseif($avai_mob>=1)
+    $_SESSION['error']['mobile']="Mobile - Mobile number already exists";
 
 elseif(strlen($_POST['mobile'])!=10)
  	$_SESSION['error']['mobile'] = "Mobile - Enter Valid Mobile Number";
@@ -56,6 +78,13 @@ if(!isset($_POST['add1']) || trim($_POST['add1'])=='')
 
 if(!isset($_POST['country']) || trim($_POST['country'])=='Select Country')
 	$_SESSION['error']['country'] = "Country - Required Option Can't be blank";
+
+
+
+if(!isset($_POST['age']) || trim($_POST['age'])=='Select Age')
+    $_SESSION['error']['age'] = "Age - Required Option Can't be blank";
+// if(!isset($_POST['add2']) || trim($_POST['add2'])=='')
+// 	$_SESSION['error']['add2'] = "Address 2 - Required Field Can't be blank";
 
 if(!isset($_POST['state']) || trim($_POST['state'])=='')
 	$_SESSION['error']['state'] = "State - Required Field Can't be blank";

@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+
+
+if(isset($_SESSION['adminid']))
+
 {
 
 
@@ -32,10 +35,8 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 }
 ?>
             <div class="page-header">
-              <h2>List of Patients 		<div class="btn-group pull-right">
-		<a href="Patientregister.php" class="btn btn-inverse">Define New Patient</a>
-            </div></h2>
-		
+
+              <h2>List of Patients </h2>
 
             </div>
 	<table class="table">
@@ -51,17 +52,29 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 <?php
 include('config.php');
 
+
+$num=0;
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_patient_details";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
 
-	$recordsreminder123 = $total_pages[num];
+
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
+
+
+
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "patientlist.php"; 	
-	$limit = 10; 
+	$limit = 30; 
 	$stages = 3;
 
-	$page = mysql_escape_string($_GET['page']);
+//added by suresh
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
+
+
 	if($page)
 	{
 		$start = ($page - 1) * $limit; 
@@ -94,7 +107,11 @@ include('config.php');
 // 	$sqlpatient = "SELECT * FROM tbl_patient_details;";
 // 
 // 	$querypatient = mysql_query($sqlpatient);
-	
+
+//added by suresh
+$sqlpatient = "SELECT * FROM tbl_patient_details ORDER BY pid_patient_username ASC LIMIT $start, $limit";
+$querypatient = mysql_query($sqlpatient);
+//end
 
 
 	while($recordspatient = mysql_fetch_array($querypatient))

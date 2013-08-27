@@ -66,17 +66,21 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 <?php
 include('config.php');
 
+$num=0;
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_assessment_details";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "viewassessment.php"; 	
 	$limit = 10; 
 	$stages = 3;
 
-	$page = mysql_escape_string($_GET['page']);
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
 	if($page)
 	{
 		$start = ($page - 1) * $limit; 

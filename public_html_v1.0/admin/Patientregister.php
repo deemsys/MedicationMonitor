@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+if(isset($_SESSION['adminid']))
 {
 
 
@@ -41,12 +41,195 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
       </div>';
 }
 ?>
+    <?php
+    if(!isset($_SESSION['error'])&&!isset($_SESSION['success']))
+    {
+    ?>
+
+
+        <div id="global" class="tab-pane fade active in">
+            <form class="form-horizontal" action="updatepatient.php" method="POST" name="dd1" id="dd1">
+                <!-- 			<form class="form-horizontal" action="Service/patientresponce.php?service=patinsert" method="POST" name="dd1" id="dd1"> -->
+                <div>
+                    <legend>Patient Registration</legend>
+                    <p align="right"><span style=" color : red;">*</span>Required Field Can't be blank</p>
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>User Name</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                        </div>
+                    </div>
+                    <input type="hidden" class="input-medium"  name="userid">
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>First Name</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" name="fname" id="fname">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01">Last Name</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="lname" id="lname">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Password</label>
+                        <div class="controls">
+                            <input type="password" class="input-medium" name="pswd" id="pswd">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Confirm Password</label>
+                        <div class="controls">
+                            <input type="password" class="input-medium" name="cpswd" id="cpswd">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Sex</label>
+                        <div class="controls">
+                            <label class="radio"><input type="radio" name="sex" value="Male"> Male</label>
+                            <label class="radio"><input type="radio" name="sex" value="Female"> Female</label>
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label for="select01" class="control-label"><span style=" color : red;">*</span>Age</label>
+                        <div class="controls">
+                            <select id="select01" name="age" class="input-medium">
+                                <option>Select Age</option>
+                                <option>05 to 10</option>
+                                <option>11 to 15</option>
+                                <option>16 to 20</option>
+                                <option>21 to 25</option>
+                                <option>26 to 30</option>
+                                <option>31 to 35</option>
+                                <option>36 to 40</option>
+                                <option>41 to 45</option>
+                                <option>46 to 50</option>
+                                <option>51 to 55</option>
+                                <option>56 to 60</option>
+                                <option>61 to 65</option>
+                                <option>66 to 70</option>
+                                <option>71 to 75</option>
+                                <option>76 to 80</option>
+                                <option>81 to 85</option>
+                                <option>86 to 90</option>
+                                <option>91 to 95</option>
+                                <option>96 to 100</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Email</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" name="email" id="email">
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01">Skype Id</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="skype" id="skype">
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01">Facetime Id</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" name="facetime" id="facetime">
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Mobile</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" name="mobile" id="mobile"><strong id="notavai"></strong><i id="notempty"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Address1</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" name="address1" id="address1">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01">Address2</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="address2" id="address2">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="select01" class="control-label"><span style=" color : red;">*</span>Country</label>
+                        <div class="controls">
+                            <select id="select01" name="country" class="input-large">
+                                <option>Select Country</option>
+                                <option>USA</option>
+                                <option>Others</option>
+
+
+                            <!-- Added-->
 
 
 
+                                <!--end-->
 
 
-			<div id="global" class="tab-pane fade active in">
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>State</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="state" id="state">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>City</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="city" id="city">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Postal Code</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium"  name="zipcode" id="zipcode">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <?php
+    }
+
+        else
+        {
+        ?>
+    		<div id="global" class="tab-pane fade active in">
          		<form class="form-horizontal" action="updatepatient.php" method="POST" name="dd1" id="dd1">
 <!-- 			<form class="form-horizontal" action="Service/patientresponce.php?service=patinsert" method="POST" name="dd1" id="dd1"> -->
               		<div>
@@ -58,7 +241,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['username']; ?>" name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
                     	</div>
                 	</div>
-			<input type="hidden" class="input-medium" value="<?php/* echo $_SESSION['userid'];*/ ?>" name="userid">
+			<input type="hidden" class="input-medium" value="<?php echo $_SESSION['userid']; ?>" name="userid">
 
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>First Name</label>
@@ -98,9 +281,9 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
               		
 			<div class="control-group">
-			<label for="select01" class="control-label"><span style=" color : red;">*</span>Select Age</label>
+			<label for="select01" class="control-label"><span style=" color : red;">*</span>Age</label>
 			<div class="controls">
-			<select id="select01" name="age" class="input-semi-medium">
+			<select id="select01" name="age" class="input-medium">
 			<option>Select Age</option>
 			<option>05 to 10</option>
 			<option>11 to 15</option>
@@ -198,7 +381,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Zip/Postal code</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Postal Code</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['zipcode']; ?>" name="zipcode" id="zipcode">
                     	</div>
@@ -209,7 +392,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                                   <button type="reset" class="btn btn-primary">Reset</button>
 		                  
 		                </div>
-		              	</fieldset>
+		              	</div>
 		            	</form>
 						</div>                    <!-- End of Payment Tabs -->	
 
@@ -227,6 +410,9 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
     </div>
     </div>
+            <?php
+            }
+            ?>
     <!--/.fluid-container-->
 
     <!-- Le javascript
@@ -269,7 +455,73 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
 </script>
+    <script type="text/javascript">
 
+        $(document).ready(function() {
+            $('#username').keyup(function(){
+
+                var usernam = $('#username').val();
+                var n = usernam.length;
+                //alert(usernam);
+
+                $.post("patient_check.php",{ rrr: usernam },function(data){
+//alert("fdgd123");
+
+//  alert(n);
+                    if(n>0)
+                    {
+                        $('#notavai').show(data);
+                        $('#notavai').html(data);
+
+                    }
+                    else
+                    {
+//  alert(n);
+                        $('#notavai').hide(data);
+
+                    }
+
+                });
+
+
+            });
+
+        });
+
+       /*
+        // To check mobile number
+        $(document).ready(function() {
+            $('#mobile').keyup(function(){
+
+                var mob = $('#mobile').val();
+                var n = mob.length;
+                //alert(usernam);
+if(n==10)
+                $.post("patient_mob_check.php",{ rrr: mob },function(data){
+//alert("fdgd123");
+
+//  alert(n);
+                    if(n>0)
+                    {
+                        $('#notavai').show(data);
+                        $('#notavai').html(data);
+
+                    }
+                    else
+                    {
+//  alert(n);
+                        $('#notavai').hide(data);
+
+                    }
+
+                });
+
+
+            });
+
+        });*/
+
+    </script>
   </body>
 </html>
 <?php

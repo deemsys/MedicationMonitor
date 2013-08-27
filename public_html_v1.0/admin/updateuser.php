@@ -42,7 +42,7 @@ if(trim($_POST['pswd'])!= trim($_POST['cpswd']))
 	$_SESSION['error']['pswd'] = "Password - Password and Confirm Password are not match";
 
 if(!isset($_POST['sex']) || trim($_POST['sex'])=='')
-	$_SESSION['error']['sex'] = "Sex - Required Option Can't be blank";
+	$_SESSION['error']['sex'] = "Sex - Required Field Can't be blank";
 
 if(!isset($_POST['age']) || trim($_POST['age'])=='Select Age')
 	$_SESSION['error']['age'] = "Age - Required Field Can't be blank";
@@ -54,11 +54,11 @@ elseif(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,
 	$_SESSION['error']['email'] = "E-Mail - Enter the Valid E-mail format";
 
 
-// if(!isset($_POST['skype']) || trim($_POST['skype'])=='')
-// 	$_SESSION['error']['skype'] = "Skype Id - Required Field Can't be blank";
-// 
-// if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
-// 	$_SESSION['error']['facetime'] = "Facetime Id - Required Field Can't be blank";
+if(!isset($_POST['skype']) || trim($_POST['skype'])=='')
+	$_SESSION['error']['skype'] = "Skype Id - Required Field Can't be blank";
+
+if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
+	$_SESSION['error']['facetime'] = "Facetime Id - Required Field Can't be blank";
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
 	$_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";

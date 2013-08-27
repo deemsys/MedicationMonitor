@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+if(isset($_SESSION['adminid']))
 {
 
 

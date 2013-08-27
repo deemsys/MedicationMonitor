@@ -2,8 +2,8 @@
 
 
 $host = "localhost";
-$DB_usr_name = "medsmoni_monitor";
-$DB_usr_pswd = "monitor";
+$DB_usr_name = "root";
+$DB_usr_pswd = "";
 $DB_name = "medsmoni_medicationmonitor"; 
 
 

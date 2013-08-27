@@ -285,7 +285,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>Address</label>
                 <div class="controls">
-                    <textarea placeholder=" please Enter your Address" name="address" rows="3" id="address" class="input-xlarge"></textarea>
+                    <textarea placeholder=" please enter your Address" name="address" rows="3" id="address" class="input-xlarge"></textarea>
                 </div>
             </div>
 

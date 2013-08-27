@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+
+
+if(isset($_SESSION['adminid']))
+
 {
 
 
@@ -36,10 +39,12 @@ $patient_id = $_GET['id'];
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li><a href="/admin/patientlist.php">Patient Details</a> <span class="divider">/</span></li>
-        <li><a href="/admin/patientdetails.php?id=<?=$patientrecords['pid_patient_id']?>"><?=$patientrecords['pid_patient_firstname']?></a> <span class="divider">/</span></li>
-        <li class="active">Edit</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+     <li><a href="index.php">Home</a> <span class="divider">/</span></li>
+     <li><a href="javascript:history.go(-1);">Patient Details</a><span class="divider">/</span></li>
+     <li><a href="javascript:history.go(-1);"><?php echo $patientrecords['pid_patient_username'];?></li><span class="divider">/</span>
+     <li class="active">Edit<a></a></li>
+     <i class="icon-chevron-left pull-right"></i>
+
       </ul>
     <div class="container-fluid">
     
@@ -200,18 +205,21 @@ $femaleSelected = ($patientrecords['pid_patient_sex'] && strtolower($patientreco
                     	</div>
                 	</div>
 
-              		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Zip/Postal code</label>
-                  	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?=$patientrecords['pid_patient_zipcode']?>" name="zipcode" id="zipcode">
-                    	</div>
-                	</div>
+                        <div class="control-group">
+                            <label class="control-label" for="input01"><span style=" color : red;">*</span>Postal Code</label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" value="<?php echo $patientrecords['pid_patient_zipcode']; ?>" name="zipcode" id="zipcode">
+                            </div>
+                        </div>
 
 				<div class="form-actions">
 		                  <button type="submit" class="btn btn-primary">Submit</button>
 		                </div>
 
-		              	</fieldset>
+
+
+		              	</div>
+
 		            	</form>
 
 			</div>

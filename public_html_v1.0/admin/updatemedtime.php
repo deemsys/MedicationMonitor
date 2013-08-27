@@ -20,12 +20,33 @@ foreach($medicine_id as $med1)
 	$fromdate1 = $_POST["fromdate_$med1"];
 	$todate1 = $_POST["todate_$med1"];
 
+
+    //Added by deem
+
+    $medtype = $_POST["medtype_$med1"];
+    $sql="Select md_medicine_name from tbl_medication_details where md_medication_id='".$med1."'";
+
+    $query = mysql_query($sql);
+
+    $records = mysql_fetch_array($query);
+    $med_name = $records[0];
+
+    //end
+
 	if($fromdate1 < $nowdate)
+		$_SESSION['error']["fromdate_$med1"] = $med_name." - From date Should be today or greater than today";
+    if($fromdate1 > $todate1)
+		$_SESSION['error']["fromdate_$med1"] = $med_name." - To date Should be greater than From date";
+    if($fromdate1==$todate1)
+    {
+       // $_SESSION['error']["fromdate_$med1"]="From date and to date must be different";
+          if($medtype=="Daily"||$medtype=='Every Couple of days')
+          {
+                $_SESSION['error']["fromdate_$med1"]=$med_name." - From Date and To Date must be different";
 
-		$_SESSION['error']["fromdate_$med1"] = "Date - Invalid Date";
-	if($fromdate1 > $todate1)
+          }
+    }
 
-		$_SESSION['error']["fromdate_$med1"] = "To Date - Invalid Date";
 
 }
 

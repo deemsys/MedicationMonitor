@@ -16,6 +16,18 @@ $sqlpatient = mysql_fetch_array($sqlcheck);
 $avai = mysql_num_rows($sqlcheck);
 
 // echo $avai; exit;
+//Added by suresh
+$mobile = $_POST['mobile'];
+
+$mobcheck = "SELECT * FROM tbl_patient_details WHERE pid_patient_mobile='$mobile'";
+
+$sqlcheck_mob = mysql_query($mobcheck);
+
+$sqlpatient_mob = mysql_fetch_array($sqlcheck_mob);
+
+$avai_mob = mysql_num_rows($sqlcheck_mob);
+//End
+
 
 foreach($_POST as $key=>$value)
 {
@@ -64,9 +76,10 @@ if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
 	$_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
-
-elseif(!eregi("^([0-9])+$",$_POST['mobile']))
-	$_SESSION['error']['mobile'] = "Mobile - Only Allowed Numbers";
+elseif(!eregi("^([7-9]{1})([0-9]{9})$",$_POST['mobile']))
+	$_SESSION['error']['mobile'] = "Mobile - Invalid Mobile Number";
+elseif($avai_mob>=1)
+    $_SESSION['error']['mobile']="Mobile - Mobile number already exists";
 
 elseif(strlen($_POST['mobile'])!=10)
  	$_SESSION['error']['mobile'] = "Mobile - Enter Valid Mobile Number";
@@ -90,21 +103,19 @@ if(!isset($_POST['country']) || trim($_POST['country'])=='Select Country')
 
 if(!isset($_POST['state']) || trim($_POST['state'])=='')
 	$_SESSION['error']['state'] = "State - Required Field Can't be blank";
+elseif(!eregi("[A-Za-z]", $_POST['state']))
+    $_SESSION['error']['state']='State - Only accept alphabets';
 
-elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['state']))
-	$_SESSION['error']['state'] = "State - Only Allowed Alphabets";
-	
+
 if(!isset($_POST['city']) || trim($_POST['city'])=='')
 	$_SESSION['error']['city'] = "City - Required Field Can't be blank";
+elseif(!ereg("[A-Za-z]", $_POST['city']))
+    $_SESSION['error']['city']='City - Only accept alphabets';
 
-elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
-	$_SESSION['error']['city'] = "City - Only Allowed Alphabets ";
-	
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
 	$_SESSION['error']['zipcode'] = "Zipcode - Required Field Can't be blank";
-
-elseif(!preg_match("/^(\d{5})(?:[-\s]*(\d{4}))?$/",$_POST['zipcode']))
-	$_SESSION['error']['zipcode'] = "Zipcode - Enter Valid Zip Code";
+elseif(!eregi("^[0-9]",$_POST['zipcode']))
+    $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
 
 
 	

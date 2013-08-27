@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+
+
+include('config.php');
+
+
+
 include('header.php');
 ?>
 
@@ -47,13 +53,44 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
                 		<div class="control-group">
                   		<label class="control-label" for="input01">User Name</label>
                   		<div class="controls">
-                    	<input type="text" class="input-medium" name="username" value="<?php  echo $_COOKIE['remember']['username']; echo $_SESSION['values']['username']; ?>" id="input01">
+                            <?php
+                            if(isset($_COOKIE['remember']['username']))
+                            {
+                               ?>
+                                <input type="text" class="input-medium" name="username" value="<?php echo $_COOKIE['remember']['username'];?>" id="input01">
+                                <?php
+
+                            }
+                            else
+                            {
+                            ?>
+                    	<input type="text" class="input-medium" name="username" value="" id="input01">
+                                <?php
+                            }
+                                ?>
+
                     	</div>
                 		</div>
                 		<div class="control-group">
                   		<label class="control-label" for="input01">Password</label>
                   		<div class="controls">
-                    	<input type="password" class="input-medium" value="<?php echo $_COOKIE['remember']['pswd']; ?>" name="pswd" id="input01">
+                            <?php
+                            if(isset($_COOKIE['remember']['password']))
+                            {
+                                ?>
+                                <input type="password" class="input-medium" name="pswd" value="<?php echo $_COOKIE['remember']['pswd'];?>" id="input02">
+                            <?php
+
+                            }
+                            else
+                            {
+                                ?>
+                                <input type="password" class="input-medium" name="pswd" value="" id="input02">
+                            <?php
+                            }
+                            ?>
+
+
                     	</div>
                 		</div>
                         <div class="control-group">

@@ -16,7 +16,7 @@ foreach($_POST as $key=>$value)
 
 
 	if(!isset($_POST['Answer']) || trim($_POST['Answer'])=='' && !isset($_POST['question_']) || trim($_POST['question_'])=='' && !isset($_POST['ansoption_']) || trim($_POST['ansoption_'])=='')
-	$_SESSION['error']["question_$parentans1"] = "Indipendent Question & Answers - Required Field Can't be blank";
+	$_SESSION['error']["question_$parentans1"] = "Independent Question & Answers - Required Field Can't be blank";
 
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
 {

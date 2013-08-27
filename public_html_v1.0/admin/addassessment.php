@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+
+
+if(isset($_SESSION['adminid']))
+
 {
 
 
@@ -205,7 +208,20 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Assessment Name</label>
                   	<div class="controls">
+                        <?php
+                        if(isset($_SESSION['values']['assessment']))
+                        {
+                        ?>
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['assessment']; ?>" name="assessment" id="assessment">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                            <?php
+                        }
+                        else
+                        {
+                            ?>
+                            <input type="text" class="input-medium"  name="assessment" id="assessment">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                            <?php
+                        }
+                            ?>
                     	</div>
                 	</div>
 

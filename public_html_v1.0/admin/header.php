@@ -43,14 +43,15 @@
 require("config.php");
 
 
+
+if(isset($_SESSION['adminid']))
+{
+
 $sql = "select * from tbl_admin_details where md_admin_id =".$_SESSION['adminid'];
 $query = mysql_query($sql);
 
 $records = mysql_fetch_array($query);
 $username = $records['md_username'];
-
-if($_SESSION['adminid'] != '')
-{
 
  $sql11 = "SELECT * FROM tbl_relationship_details WHERE rs_relation_status = '0' ";
 
@@ -99,7 +100,7 @@ if($_SESSION['adminid'] != '')
 <?php
 }
 
-if($_SESSION['adminid'] == '')
+if(!isset($_SESSION['adminid']))
 {
 
 ?>

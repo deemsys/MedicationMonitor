@@ -42,16 +42,19 @@ include('config.php');
 
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_patient_details WHERE pid_provider_userid = '".$_SESSION['userid']."'";
 
-	$total_pages = mysql_fetch_array(mysql_query($sqlreminder));
+$num=0;
+	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
-	$recordsreminder123 = $total_pages[num];
+	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "mypatientlist.php"; 	
 	$limit = 10; 
 	$stages = 3;
-
-	$page = mysql_escape_string($_GET['page']);
-	if($page)
+if(isset($_GET['page']))
+    $page =mysql_escape_string($_GET['page']);
+else
+    $page=0;
+		if($page)
 	{
 		$start = ($page - 1) * $limit; 
 	}
@@ -297,6 +300,8 @@ function validate(val)
   </body>
 </html>
 <?php
+    unset($_SESSION['success']);
+unset($_SESSION['error']);
 }
 else
 {
