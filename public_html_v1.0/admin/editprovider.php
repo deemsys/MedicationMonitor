@@ -9,21 +9,24 @@ include('header.php');
 
 include('config.php');
 
-
+$id=$_GET['id'];
 
 	$sqlmyacc = "SELECT * FROM tbl_user_details WHERE ud_user_id =".$_GET['id'];
 
 	$querymyacc = mysql_query($sqlmyacc);
 	$myaccrecords = mysql_fetch_array($querymyacc);
+   // $providerrecords=mysql_fetch_array($querymyacc);
 	
 ?>
 
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li><a href="/admin/providerlist.php">Provider Details</a> <span class="divider">/</span></li>
-        <li><a href="/admin/providerdetails.php?id=<?=$myaccrecords['ud_user_id']?>"><?php echo $myaccrecords['ud_firstname']." ".$myaccrecords['ud_lastname']; ?></a> <span class="divider">/</span></li>
-        <li class="active">Edit</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+     <li><a href="providerlist.php">Provider Details</a><span class="divider">/</span></li>
+     <li><a href="providerdetails.php?id=<?php echo $id ?>"><?php echo $myaccrecords['ud_username'];?></li><span class="divider">/</span>
+
+
+        <li class="active">Edit</li><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
@@ -93,7 +96,7 @@ $femaleSelected = ($myaccrecords['ud_sex'] && strtolower($myaccrecords['ud_sex']
                 	</div>
 
 			<div class="control-group">
-			<label for="select01" class="control-label"><span style=" color : red;">*</span>Select Age</label>
+			<label for="select01" class="control-label"><span style=" color : red;">*</span>Age</label>
 			<div class="controls">
 			<select id="select01" name="age" class="input-semi-medium">
 			<option value="0">Select Age</option>
@@ -109,7 +112,7 @@ $femaleSelected = ($myaccrecords['ud_sex'] && strtolower($myaccrecords['ud_sex']
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email Id</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Email</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $myaccrecords['ud_email_id']; ?>" name="email" id="email">
                     	</div>
@@ -185,7 +188,7 @@ $femaleSelected = ($myaccrecords['ud_sex'] && strtolower($myaccrecords['ud_sex']
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Zip/Postal code</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Postal code</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?=$myaccrecords['ud_zipcode']?>" name="zipcode" id="zipcode">
                     	</div>

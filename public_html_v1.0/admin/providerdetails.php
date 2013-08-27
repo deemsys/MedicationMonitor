@@ -24,7 +24,7 @@ $id = $_GET['id'];
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li><a href="/admin/providerlist.php">Provider Details</a> <span class="divider">/</span></li>
+        <li><a href="providerlist.php">Provider Details</a> <span class="divider">/</span></li>
         <li class="active"><?php echo $providerrecords['ud_firstname']." ".$providerrecords['ud_lastname']; ?></li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
