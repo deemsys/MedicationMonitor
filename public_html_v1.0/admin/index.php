@@ -70,27 +70,27 @@ $count16 = mysql_num_rows($query16);
 				
 					<a href="patientlist.php" class="stat-column">
 						<span class="number"><?php echo $count11; ?></span>
-						<span>No. of Patients</span></a>
+						<span>No.of Patients</span></a>
 
 					<a href="providerlist.php" class="stat-column">
 						<span class="number"><?php echo $count12; ?></span>
-						<span>No. of Providers</span></a>
+						<span>No.of Providers</span></a>
 
 					<a href="Medicinelist.php" class="stat-column">
 						<span class="number"><?php echo $count13; ?></span>
-						<span>No. of Medicines</span></a>
+						<span>No.of Medicines</span></a>
 
 					<a href="viewreminder.php" class="stat-column">
 						<span class="number"><?php echo $count14; ?></span>
-						<span>No. of Reminders</span></a>
+						<span>No.of Reminders</span></a>
 
 					<a href="viewassessment.php" class="stat-column">
 						<span class="number"><?php echo $count15; ?></span>
-						<span>No. of Assessments</span></a>
+						<span>No.of Assessments</span></a>
 
 					<a href="viewappionment.php" class="stat-column">
 						<span class="number"><?php echo $count16; ?></span>
-						<span>No. of Appointments</span></a>
+						<span>No.of Appointments</span></a>
 
 	</div>
 </div>

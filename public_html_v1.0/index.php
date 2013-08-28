@@ -62,15 +62,15 @@ $count16 = mysql_num_rows($query16);
 				
 					<a href="mypatientlist.php" class="stat-column">
 						<span class="number"><?php echo $count11; ?></span>
-						<span>No. of Patients</span></a>
+						<span>No.of Patients</span></a>
 
 					<a href="Medicinelist.php" class="stat-column">
 						<span class="number"><?php echo $count13; ?></span>
-						<span>No. of Medicines</span></a>
+						<span>No.of Medicines</span></a>
 
 					<a href="viewassessment.php" class="stat-column">
 						<span class="number"><?php echo $count15; ?></span>
-						<span>No. of Assessments</span></a>
+						<span>No.of Assessments</span></a>
 
 					<!--a href="" class="stat-column">
 						<span class="number"><?php echo $count12; ?></span>

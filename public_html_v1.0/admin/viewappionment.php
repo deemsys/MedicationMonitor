@@ -12,8 +12,8 @@ include('config.php');
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Appointment</li><span class="divider">/</span></li>
-        <li class="active">View Appointment</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+       <!-- <li class="active">Appointment</li><span class="divider">/</span></li>-->
+        <li class="active">Appointments</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
