@@ -100,7 +100,8 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
                 <input type="checkbox" value="remember" name="remember" id="optionsCheckbox">
                 Remember
               </label>
-<a href="forgetpswd.php" class="btn btn-mini">Forgot Your Password?</a>
+              <br/>
+              <a href="forgetpswd.php" class="btn btn-mini">Forgot Your Password?</a>
             </div>
           </div>
       					<div class="form-actions">
