@@ -98,12 +98,12 @@ if(isset($_SESSION['userid']))
 
                    <!--enable by suresh-->
 
-                <li><a href="viewassessment.php"><i class="icon-ok-circle icon-white"></i> Assessment </a></li>
+                <li><a href="viewassessment.php"><i class="icon-ok-circle icon-white"></i> Assessments </a></li>
 
 
     <!--enable by suresh-->
 
-		<li><a href="viewappionment.php"><i class="icon-time icon-white"></i> Appointment</a></li>
+		<li><a href="viewappionment.php"><i class="icon-time icon-white"></i> Appointments</a></li>
 
            <li><a href="assessment.php">Daily Questionnaire</a></li>
                 <li><a href="assessmentweek.php">Weekly Questionnaire</a></li>
