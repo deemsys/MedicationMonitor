@@ -597,15 +597,16 @@ else{
 	$query11 = mysql_query($sql11);
 	
 
-
+$noofcheckbox=0;
 		while($assess = mysql_fetch_array($query11))
 		{
-
+$noofcheckbox++;
 ?>
 <td>
 
 	<input type="checkbox" name="assessment[]" id="<?php echo $assess['ad_assessment_name']; ?>" value="<?php echo $assess['ad_assessment_id']; ?>">  <?php echo $assess['ad_assessment_name']."<br />"; ?>
 	<input type="hidden" name="provider" value="<?php echo $_SESSION['userid']; ?>">
+<input type="hidden" name="noofcheckbox" value="<?php echo $noofcheckbox?>">
 
 		
 <?php
