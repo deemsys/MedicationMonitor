@@ -59,7 +59,15 @@ if(isset($_SESSION['userid']))
 
 
           <ul class="nav">
-		<li><a href="index.php"><i class="icon-home icon-white"></i> Home</a></li>
+              <?php
+              if(substr($_SERVER['SCRIPT_NAME'],-9)!="index.php")
+              {
+                  ?>
+                  <li><a href="index.php"><i class="icon-home icon-white"></i> Home</a></li>
+              <?php
+              }
+              ?>
+
 		<li><a href="Medicinelist.php"><i class="icon-plus-sign icon-white"></i> Medication</a></li>
 
 <?php

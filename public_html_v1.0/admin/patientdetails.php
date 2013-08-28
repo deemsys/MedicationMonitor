@@ -662,10 +662,10 @@ else{
 	$query11 = mysql_query($sql11);
 	
 
-$assCount=0;
+//$assCount=0;
 		while($assess = mysql_fetch_array($query11))
 		{
-$assCount++;
+//$assCount++;
 ?>
 <td>
 
@@ -676,7 +676,7 @@ $assCount++;
 <?php
 
 $b++;
-	
+
 if($b == 3)
 {
  echo "</td><tr>";
@@ -689,7 +689,7 @@ echo "</td>";
 }
 
 }
-if (!$assCount) { 
+if (!$assCount) {
 echo "<td>No assessments found.</td>";
 }
 
