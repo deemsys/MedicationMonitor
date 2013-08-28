@@ -103,7 +103,7 @@ $i=0;
                       <td><?php echo $start+($i+=1); ?></td>
                       <td><?php echo $recordsmedicine['md_medicine_name']; ?></td>
 <?php if ($recordsmedicine['md_medicine_imageurl'] && file_exists($recordsmedicine['md_medicine_imageurl'])) { ?>
-                      <td><a href="<?=$recordsmedicine['md_medicine_imageurl']?>" target="_blank">Click Here</a></td>
+                      <td><a href="<?php echo $recordsmedicine['md_medicine_imageurl']?>" target="_blank">Click Here</a></td>
 <?php } else { ?>
                       <td>No Image</td>
 <?php } ?>

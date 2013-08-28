@@ -85,7 +85,7 @@ $today = date('Y-m-d');
 	}
 	else
 	{
-		$searchword = ' WHERE rd_reminder_dateandtime >="'.$today.'"';
+		$searchword = '';
 	}
 $num=0;
 	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_reminder_details".$searchword."";
