@@ -89,20 +89,29 @@ if(isset($_SESSION['userid']))
             <!--enable by suresh-->
 			<li><a href="mypatientlist.php">My Patients</a></li>
 			<li<?php if ($count11) { ?> style="background-color:#B94A48; font-size:15px;font-weight:bold;"><?php } ?><a href="requestpatient.php">Request Pending</a></li>
-	</li>
+
 		</ul>
+    </li>
 
     <!--enable by suresh-->
            <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Providers <b class="caret"></b></a>
               <ul class="dropdown-menu">
               <li><a href="providerlist.php">List of Providers</a></li>
-              </li>
-              </ul><!--enable by suresh-->
 
+              </ul><!--enable by suresh-->
+</li>
 
                    <!--enable by suresh-->
-	<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li>
+              <!--Removed due to make dropdown-->
+	<!--<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li>-->
+              <li class="dropdown">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Reminders<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="reminders.php">Add Reminder</a></li>
+                      <li><a href="viewreminder.php">View Reminders</a></li>
+                  </ul>
+              </li>
 
                    <!--enable by suresh-->
 

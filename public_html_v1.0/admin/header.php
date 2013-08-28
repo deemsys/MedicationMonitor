@@ -82,7 +82,7 @@ $username = $records['md_username'];
 	</li>
 		</ul>
 
-            
+
             <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Providers <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -90,8 +90,14 @@ $username = $records['md_username'];
               <li><a href="providerlist.php">List of Providers</a></li>
               </li>
               </ul>
+    <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Reminders<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="reminders.php">Add Reminder</a></li>
+            <li><a href="viewreminder.php">View Reminders</a></li>
+        </ul>
+    </li>
 
-		<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li>
 		
                 <li><a href="viewassessment.php"><i class="icon-ok-circle icon-white"></i> Assessment </a></li>
 

@@ -111,9 +111,24 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Reminder Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['remindername']; ?>" name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                    <?php if(isset($_SESSION['values']['remaindername']))
+{
+    ?>
+    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['remindername']; ?>" name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+    <?php
+}
+                    else
+                    {?>
+
+                        <input type="text" class="input-medium" name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+
+                        <?php
+                    }
+    ?>
+
+
 			</div>
-                	</div>
+                	</fieldset>
 
               		<div class="control-group">
             <label for="select01" class="control-label"><span style=" color : red;">*</span>Select Patient</label>
