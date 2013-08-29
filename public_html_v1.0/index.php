@@ -95,7 +95,7 @@ $count16 = mysql_num_rows($query16);
       <hr>
 
       <footer>
-        <p>&copy; Medication Monitor 2012</p>
+        <p>&copy; Medication Monitor 2013</p>
       </footer>
 
     </div>
