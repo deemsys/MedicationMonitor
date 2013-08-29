@@ -68,7 +68,14 @@ if(isset($_SESSION['userid']))
               }
               ?>
 
-		<li><a href="Medicinelist.php"><i class="icon-plus-sign icon-white"></i> Medication</a></li>
+		<!-- Removed to make dropdownmenu<li><a href="Medicinelist.php"><i class="icon-plus-sign icon-white"></i> Medication</a></li>-->
+              <li class="dropdown">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-plus-sign icon-white"></i>Medicine<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="addmedicine.php">Add Medicine</a></li>
+                      <li><a href="Medicinelist.php">View Medicines</a></li>
+                  </ul>
+              </li>
 
 <?php
 

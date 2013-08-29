@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+if(isset($_SESSION['adminid']))
 {
 
 include('header.php');
@@ -59,14 +59,20 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 include('config.php');
 
 $num=0;
-	$sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_relation_providerid = '".$_SESSION['userid']."' AND rs_relation_status = '0'"; 
+//changed the query to get the count
+//$sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_relation_providerid = '".$_SESSION['userid']."' AND rs_relation_status = '0'";
+//Changed the query to get the count ENDS
+
+$sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_relation_status = '0'";
+
+
 
 	$total_pages = mysql_fetch_array(mysql_query($sqlreminder),$num);
 
 	$recordsreminder123 = $total_pages[$num];
 
-	$targetpage = "requestpatient.php"; 	
-	$limit = 10; 
+	$targetpage = "requestpatient.php";
+	$limit = 6;
 	$stages = 3;
 
 if(isset($_GET['page']))
@@ -106,12 +112,14 @@ else
 		</tr>
 <?php
 	}else{
+        $i=0;
 		while($recordspatient = mysql_fetch_array($querypatient))
 		{
 
 
 ?>
 		<tr>
+            <td><?php echo $start+($i+=1); ?></td>
                       <td><?php echo $recordspatient['pid_patient_firstname']; echo " ".$recordspatient['pid_patient_lastname']; ?></td>
                       <!--<td><a href="patientdetails.php?id=<?php echo $recordspatient['pid_patient_id']; ?>"><?php echo $recordspatient['pid_patient_username']; ?></a></td>-->
 			<td><?php echo $recordspatient['pid_patient_username']; ?></td>
