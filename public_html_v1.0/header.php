@@ -88,7 +88,18 @@ if(isset($_SESSION['userid']))
             <li><a href="patientlist.php">List of Patients</a></li>
             <!--enable by suresh-->
 			<li><a href="mypatientlist.php">My Patients</a></li>
-			<li<?php if ($count11) { ?> style="background-color:#B94A48; font-size:15px;font-weight:bold;"><?php } ?><a href="requestpatient.php">Request Pending</a></li>
+			<li<?php if ($count11)
+            {
+            ?> style="background-color:#B94A48; font-size:15px;font-weight:bold;"
+            <?php
+            }
+                else
+                {
+                ?> style="background-color:green; font-size:15px;padding-left:15px;"
+            <?php
+            }
+            ?>
+            <a href="requestpatient.php" >Request Pending</a></li>
 
 		</ul>
     </li>
