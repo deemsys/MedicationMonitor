@@ -106,12 +106,12 @@ else
 		</tr>
 <?php
 	}else{
+
 		while($recordspatient = mysql_fetch_array($querypatient))
 		{
-
-
 ?>
 		<tr>
+
                       <td><?php echo $recordspatient['pid_patient_firstname']; echo " ".$recordspatient['pid_patient_lastname']; ?></td>
                       <!--<td><a href="patientdetails.php?id=<?php echo $recordspatient['pid_patient_id']; ?>"><?php echo $recordspatient['pid_patient_username']; ?></a></td>-->
 			<td><?php echo $recordspatient['pid_patient_username']; ?></td>
