@@ -70,7 +70,14 @@ $username = $records['md_username'];
               <?php
               }
               ?>
-		<li><a href="Medicinelist.php"><i class="icon-plus-sign icon-white"></i> Medication</a></li>
+
+              <li class="dropdown">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-plus-sign icon-white"></i>Medicine<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="addmedicine.php">Add Medicine</a></li>
+                      <li><a href="Medicinelist.php">View Medicines</a></li>
+                  </ul>
+              </li>
 
 	<li class="dropdown">
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Patients <?php if($count11 !=0){ ?><span class="badge badge-important"><?php echo $count11; ?></span><?php } ?><b class="caret"></b></a>
