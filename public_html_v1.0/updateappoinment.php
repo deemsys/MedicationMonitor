@@ -2,6 +2,8 @@
 // echo "<pre>";
 //   print_r($_POST);  exit;
 
+
+
 session_start();
 require("config.php");
 
@@ -20,10 +22,10 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['appdate']) || trim($_POST['appdate'])=='')
-	$_SESSION['error']['appdate'] = "Appointment Date - Required Field Can't be blank";
+	$_SESSION['require ']['appdate'] = "Appointment Date - Required Field Can't be blank";
 
 if(!isset($_POST['appnotes']) || trim($_POST['appnotes'])=='')
-	$_SESSION['error']['appnotes'] = "Notes - Required Field Can't be blank";
+	$_SESSION['require']['appnotes'] = "Notes - Required Field Can't be blank";
 
 if(!isset($_POST['patient']) || trim($_POST['patient'])=='Select')
 	$_SESSION['error']['patient'] = "Patient Name - Required option Can't be blank";
@@ -67,6 +69,6 @@ $patient_id = $sqlpatient['pid_patient_id'];
 
  }
 
-header("Location:viewappionment.php");
+header("Location:appoinment.php");
 
 ?>

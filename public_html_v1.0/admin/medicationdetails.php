@@ -32,6 +32,8 @@ elseif($avai == 1)
 	$_SESSION['error']['medicinename'] = "Medicine Name - Medicine Name Already Exist";
 
 
+
+
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
 {
 

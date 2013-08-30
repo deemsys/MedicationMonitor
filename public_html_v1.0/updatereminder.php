@@ -34,7 +34,7 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['remindername']) || trim($_POST['remindername'])=='')
-	$_SESSION['error']['remindername'] = "Reminder Name - Required Field Can't be blank";
+	$_SESSION['require']['remindername'] = "Reminder Name - Required Field Can't be blank";
 
 elseif($avai == 1)
 	$_SESSION['error']['remindername'] = "Reminder Name - Reminder Name Already Exist";

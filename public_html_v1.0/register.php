@@ -1,5 +1,13 @@
 <?php
 session_start();
+function valid_check($key)
+{
+    if(isset($_SESSION['require'][$key]))
+    {
+        echo 'style="border:1px solid red;"';
+    }
+
+}
 
 if(true)
 {
@@ -66,6 +74,13 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 	foreach($_SESSION['error'] as $key=>$value)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';
+}
+if(isset($_SESSION['require']))
+{
+    echo '<div class="alert alert-error">
+    <button data-dismiss="alert" class="close" type="button">×</button>
+    <strong>Required Field(s) should not be blank!! </strong>
+</div>';
 }
 ?>
 <?php
@@ -203,35 +218,41 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>User Name</label>
                 <div class="controls">
 
-                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['username'];?>" name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['username'];?>"
+                        <?php valid_check("username")?>
+                           name="username" id="username">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>First Name</label>
                 <div class="controls">
-                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['fname']; ?>" name="fname" id="fname">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['fname']; ?>"
+                        <?php valid_check("fname")?>
+                           name="fname" id="fname">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="input01">Last Name</label>
                 <div class="controls">
-                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['lname']; ?>" name="lname" id="lname">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['lname']; ?>"  name="lname" id="lname">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>Password</label>
                 <div class="controls">
-                    <input type="password" class="input-medium" name="pswd" id="pswd">
+                    <input type="password" class="input-medium" <?php valid_check("pswd")?>
+                           name="pswd" id="pswd">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>Confirm Password</label>
                 <div class="controls">
-                    <input type="password" class="input-medium" name="cpswd" id="cpswd">
+                    <input type="password" class="input-medium"<?php valid_check("cpswd")?>
+                           name="cpswd" id="cpswd">
                 </div>
             </div>
 
@@ -254,7 +275,9 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>Email Id</label>
                 <div class="controls">
-                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['email']; ?>" name="email" id="email">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['email']; ?>"
+                        <?php valid_check("email")?>
+                           name="email" id="email">
                 </div>
             </div>
 
@@ -278,14 +301,18 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>Mobile</label>
                 <div class="controls">
-                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['mobile']; ?>" name="mobile" id="mobile">
+                    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['mobile']; ?>"
+                        <?php valid_check("mobile")?>
+                           name="mobile" id="mobile">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="input01"><span style=" color : red;">*</span>Address</label>
                 <div class="controls">
-                    <textarea placeholder=" please enter your Address" name="address" rows="3" id="address" class="input-xlarge"></textarea>
+                    <textarea placeholder=" please enter your Address"
+                        <?php valid_check("address")?>
+                              name="address" rows="3" id="address" class="input-xlarge"></textarea>
                 </div>
             </div>
 
@@ -360,6 +387,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
   </body>
 </html>
 <?php
+unset($_SESSION['require']);
 unset($_SESSION['error']);
 unset($_SESSION['success']);
 unset($_SESSION['values']['username']);

@@ -14,6 +14,7 @@ $usercheck = "SELECT * FROM tbl_medication_details WHERE md_medicine_name=".$med
 
 $sqlcheck = mysql_query($usercheck);
 
+$avai=0;
 $avai = mysql_num_rows($sqlcheck);
 
 
@@ -30,22 +31,21 @@ foreach($_POST as $key=>$value)
 	$_SESSION['values'][$key] = $value;
 }
 
-if(!isset($_POST['medicinename']) || trim($_POST['medicinename'])=='')
-	$_SESSION['error']['medicinename'] = "Medicine Name - Required Field Can't be blank";
 
 // if(!isset($_POST['medicineid']) || trim($_POST['medicineid'])=='')
 // 	$_SESSION['error']['medicineid'] = "Medicine Id - Required Field Can't be blank";
-// 
 // elseif(!eregi("^([0-9])+$",$_POST['medicineid']))
 // 	$_SESSION['error']['medicineid'] = "Medicine Id - Only Allowed Numbers";
 
-elseif($avai == 1)
+if(!isset($_POST['medicinename']) || trim($_POST['medicinename'])=='')
+	$_SESSION['require']['medicinename'] = "Medicine Name - Required Field Can't be blank";
+elseif($avai==1)
 	$_SESSION['error']['medicinename'] = "Medicine Name - Medicine Name Already Exist";
 
 
 
 
-if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
+if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0 && !isset($_SESSION['require']))
 {
 
 	foreach( $_POST as $key => $value )
@@ -105,8 +105,8 @@ $user_id = $_SESSION['userid'];
 	{
 		$_SESSION['success'] = "Your Medicine was Added successfully";
 	
-		header("Location:Medicinelist.php");
-		exit;
+	header("Location:medicinelist.php");
+    exit;
 	}
 
 }
