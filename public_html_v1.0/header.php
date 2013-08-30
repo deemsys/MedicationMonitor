@@ -91,38 +91,38 @@ if(isset($_SESSION['userid']))
 		<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Patients <?php if($count11 !=0){ ?><span class="badge badge-important"><?php echo $count11; ?></span><?php } ?><b class="caret"></b></a>
 		<ul class="dropdown-menu">
 			<li><a href="Patientregister.php">Add Patient</a></li>
-			<!--enable by suresh-->
+			<!--enable by suresh
             <li><a href="patientlist.php">List of Patients</a></li>
             <!--enable by suresh-->
 			<li><a href="mypatientlist.php">My Patients</a></li>
-			<li<?php if ($count11)
+			<li><a<?php if ($count11)
             {
-            ?> style="background-color:#B94A48; font-size:15px;font-weight:bold;"
+            ?> style="background-color:#B94A48; font-size:15px;padding-left:15px;color:#ffffff;"
             <?php
             }
                 else
                 {
-                ?> style="background-color:green; font-size:15px;padding-left:15px;"
+                ?> style="background-color:green; font-size:15px;padding-left:15px;color:#ffffff;"
             <?php
             }
             ?>
-            <a href="requestpatient.php" >Request Pending</a></li>
+             href="requestpatient.php">Request Pending</a></li>
 
 		</ul>
     </li>
 
-    <!--enable by suresh-->
+    <!--enable by suresh
            <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Providers <b class="caret"></b></a>
               <ul class="dropdown-menu">
               <li><a href="providerlist.php">List of Providers</a></li>
 
               </ul><!--enable by suresh-->
-</li>
 
-                   <!--enable by suresh-->
+
+                   <!--enable by suresh
               <!--Removed due to make dropdown-->
-	<!--<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li>-->
+	<!--<li><a href="viewreminder.php"><i class="icon-list-alt icon-white"></i> Reminders</a></li>
               <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Reminders<b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -131,12 +131,12 @@ if(isset($_SESSION['userid']))
                   </ul>
               </li>
 
-                   <!--enable by suresh-->
+                  enable by suresh-->
 
                 <li><a href="viewassessment.php"><i class="icon-ok-circle icon-white"></i> Assessments </a></li>
 
 
-    <!--enable by suresh-->
+    <!--enable by suresh
 
 		<li><a href="viewappionment.php"><i class="icon-time icon-white"></i> Appointments</a></li>
 
