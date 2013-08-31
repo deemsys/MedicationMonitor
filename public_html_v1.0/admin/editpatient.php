@@ -97,7 +97,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01">User Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $patientrecords['pid_patient_username']; ?>" disabled="true" name="lname" id="lname">
+                    	<input type="text" class="input-medium" value="<?php echo $patientrecords['pid_patient_username']; ?>"  name="lname" id="lname">
                     	</div>
                 	</div>
 

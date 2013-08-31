@@ -1,7 +1,16 @@
 <?php
 session_start();
+function valid_check($key)
+{
+    if(isset($_SESSION['require'][$key]))
+    {
+        echo 'style="border:1px solid red;"';
+    }
 
-if($_SESSION['adminid'] != '')
+}
+
+
+if(isset($_SESSION['adminid']))
 {
 
 
@@ -56,6 +65,13 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';
 }
+if(isset($_SESSION['require']))
+{
+    echo '<div class="alert alert-error">
+    <button data-dismiss="alert" class="close" type="button">×</button>
+        <strong>Required Field(s) should not be blank!! </strong>
+      </div>';
+}
 ?>
 <?php
 if(isset($_SESSION['success']) && $_SESSION['success']!='')
@@ -79,14 +95,16 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Appointment Date</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" style="color : #999999;" placeholder="Select your Date" name="appdate" id="appdate">
+                    	<input type="datetime" class="input-medium" style="color : #999999;" placeholder="Select your Date" name="appdate" id="appdate">
                     	</div>
                 	</div>
 
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Notes</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your Notes" name="appnotes" rows="3" id="appnotes" class="input-xlarge"></textarea>
+                    	<textarea placeholder=" please Enter your Notes"
+                            <?php valid_check("appnotes")?>
+                                  name="appnotes" rows="3" id="appnotes" class="input-xlarge"></textarea>
                     	</div>
                 	</div>
 
@@ -188,6 +206,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 <?php
 unset($_SESSION['error']);
 unset($_SESSION['success']);
+unset($_SESSION['require']);
 ?>
 <?php
 }

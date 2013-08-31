@@ -1,7 +1,19 @@
 <?php
 session_start();
 
-if($_SESSION['adminid'] != '')
+function valid_check($key)
+{
+    if(isset($_SESSION['require'][$key]))
+    {
+        echo 'style="border:1px solid red;"';
+    }
+
+}
+
+
+
+if(isset($_SESSION['adminid']))
+
 {
 
 
@@ -68,7 +80,7 @@ $('#daily').click(function(){
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="/admin/viewreminder.php">Reminders</a> <span class="divider">/</span></li>
+        <li><a href="viewreminder.php">Reminders</a> <span class="divider">/</span></li>
         <li class="active">Add Reminders</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
@@ -89,6 +101,14 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';
 }
+if(isset($_SESSION['require']))
+{
+    echo '<div class="alert alert-error">
+    <button data-dismiss="alert" class="close" type="button">×</button>
+        <strong>Required Field(s) should not be blank!! </strong>
+      </div>';
+}
+
 ?>
 <?php
 if(isset($_SESSION['success']) && $_SESSION['success']!='')
@@ -111,24 +131,23 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Reminder Name</label>
                   	<div class="controls">
-                    <?php if(isset($_SESSION['values']['remaindername']))
+                    <?php if(isset($_SESSION['values']['remindername']))
 {
     ?>
     <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['remindername']; ?>" name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
     <?php
 }
-                    else
-                    {?>
-
-                        <input type="text" class="input-medium" name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
-
-                        <?php
-                    }
+else
+{
+    ?>
+   <input type="text" class="input-medium" <?php valid_check("remindername")?>name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+    <?php
+}
     ?>
 
+    </div>
 
-			</div>
-                	</fieldset>
+                	</div>
 
               		<div class="control-group">
             <label for="select01" class="control-label"><span style=" color : red;">*</span>Select Patient</label>
@@ -330,6 +349,8 @@ include('config.php');
   </body>
 </html>
 <?php
+unset($_SESSION['require']);
+
 unset($_SESSION['error']);
 unset($_SESSION['success']);
 unset($_SESSION['values']['remindername']);

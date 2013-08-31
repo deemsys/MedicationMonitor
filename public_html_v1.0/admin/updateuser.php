@@ -21,22 +21,22 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['username']) || trim($_POST['username'])=='')
-	$_SESSION['error']['username'] = "User Name - Required Field Can't be blank";
+	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
 
 elseif($avai == 1)
 	$_SESSION['error']['username'] = "User Name - User Name Already Exist";
 
 if(!isset($_POST['fname']) || trim($_POST['fname'])=='')
-	$_SESSION['error']['fname'] = "First Name - Required Field Can't be blank";
+	$_SESSION['require']['fname'] = "First Name - Required Field Can't be blank";
 
 // if(!isset($_POST['lname']) || trim($_POST['lname'])=='')
 // 	$_SESSION['error']['lname'] = "Last Name - Required Field Can't be blank";
 
 if(!isset($_POST['pswd']) || trim($_POST['pswd'])=='')
-	$_SESSION['error']['pswd'] = "Password - Required Field Can't be blank";
+	$_SESSION['require']['pswd'] = "Password - Required Field Can't be blank";
 
 if(!isset($_POST['cpswd']) || trim($_POST['cpswd'])=='')
-	$_SESSION['error']['cpswd'] = "Confirm Password - Required Field Can't be blank";
+	$_SESSION['require']['cpswd'] = "Confirm Password - Required Field Can't be blank";
 
 if(trim($_POST['pswd'])!= trim($_POST['cpswd']))
 	$_SESSION['error']['pswd'] = "Password - Password and Confirm Password are not match";
@@ -48,7 +48,7 @@ if(!isset($_POST['age']) || trim($_POST['age'])=='Select Age')
 	$_SESSION['error']['age'] = "Age - Required Field Can't be blank";
 
 if(!isset($_POST['email']) || trim($_POST['email'])=='')
-	$_SESSION['error']['email'] = "Email Id - Required Field Can't be blank";
+	$_SESSION['require']['email'] = "Email Id - Required Field Can't be blank";
 
 elseif(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$",$_POST['email']))
 	$_SESSION['error']['email'] = "E-Mail - Enter the Valid E-mail format";
@@ -61,7 +61,7 @@ if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
 	$_SESSION['error']['facetime'] = "Facetime Id - Required Field Can't be blank";
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
-	$_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
+	$_SESSION['require']['mobile'] = "Mobile - Required Field Can't be blank";
 
 elseif(!eregi("^([0-9])+$",$_POST['mobile']))
 	$_SESSION['error']['mobile'] = "Mobile - Only Allowed Numbers";
@@ -70,25 +70,25 @@ elseif(strlen($_POST['mobile'])!=10)
  	$_SESSION['error']['mobile'] = "Mobile - Enter Valid Mobile Number";
 
 if(!isset($_POST['address1']) || trim($_POST['address1'])=='')
-	$_SESSION['error']['address1'] = "Address 1 - Required Field Can't be blank";
+	$_SESSION['require']['address1'] = "Address - Required Field Can't be blank";
 
 if(!isset($_POST['country']) || trim($_POST['country'])=='Select Country')
 	$_SESSION['error']['country'] = "Country - Required Option Can't be blank";
 
 if(!isset($_POST['state']) || trim($_POST['state'])=='')
-	$_SESSION['error']['state'] = "State - Required Field Can't be blank";
+	$_SESSION['require']['state'] = "State - Required Field Can't be blank";
 
 elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['state']))
 	$_SESSION['error']['state'] = "State - Only Allowed Alphabets";
 	
 if(!isset($_POST['city']) || trim($_POST['city'])=='')
-	$_SESSION['error']['city'] = "City - Required Field Can't be blank";
+	$_SESSION['require']['city'] = "City - Required Field Can't be blank";
 
 elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
 	$_SESSION['error']['city'] = "City - Only Allowed Alphabets";
 	
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
-	$_SESSION['error']['zipcode'] = "Zipcode - Required Field Can't be blank";
+	$_SESSION['require']['zipcode'] = "Zipcode - Required Field Can't be blank";
 elseif(!eregi("^[0-9]",$_POST['zipcode']))
     $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
 

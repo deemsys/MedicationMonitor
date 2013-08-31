@@ -202,6 +202,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
       					<div class="form-actions">
 		                  <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="reset" class="btn btn-primary">Reset</button>
 		                  
 		                </div>
 		              	</div>
@@ -318,6 +319,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
 
             </div>
         </div>

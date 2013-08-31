@@ -1,7 +1,14 @@
 <?php
 session_start();
 
+function valid_check($key)
+{
+    if(isset($_SESSION['require'][$key]))
+    {
+        echo 'style="border:1px solid red;"';
+    }
 
+}
 
 if(isset($_SESSION['adminid']))
 
@@ -180,6 +187,13 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';
 }
+if(isset($_SESSION['require']))
+{
+    echo '<div class="alert alert-error">
+    <button data-dismiss="alert" class="close" type="button">×</button>
+        <strong>Required Field(s) should not be blank!! </strong>
+      </div>';
+}
 ?>
 <?php
 if(isset($_SESSION['success']) && $_SESSION['success']!='')
@@ -212,13 +226,13 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                         if(isset($_SESSION['values']['assessment']))
                         {
                         ?>
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['assessment']; ?>" name="assessment" id="assessment">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                    	<input type="text" class="input-medium" <?php valid_check("assessment")?>    value="<?php echo $_SESSION['values']['assessment']; ?>" name="assessment" id="assessment">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
                             <?php
                         }
                         else
                         {
                             ?>
-                            <input type="text" class="input-medium"  name="assessment" id="assessment">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+                            <input type="text" class="input-medium" <?php valid_check("assessment")?> name="assessment" id="assessment">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
                             <?php
                         }
                             ?>
@@ -268,7 +282,9 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               		<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Question</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please Enter your Question" name="question" rows="3" id="question" class="input-xlarge"></textarea>
+
+                    	<textarea placeholder=" please Enter your Question" <?php valid_check("question")?>  name="question" rows="3" id="question" class="input-xlarge"></textarea>
+
                     	</div>
                 	</div>
 
@@ -367,6 +383,8 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
   </body>
 </html>
 <?php
+unset($_SESSION['require']);
+
 unset($_SESSION['error']);
 unset($_SESSION['success']);
 unset($_SESSION['values']['Answer1']);

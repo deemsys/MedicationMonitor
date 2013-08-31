@@ -79,9 +79,16 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<div class="control-group">
                   	<label class="control-label" for="input01">User Name</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $myaccrecords['ud_username']; ?>" disabled="true" name="lname" id="lname">
+                    	<input type="text" class="input-medium" value="<?php echo $myaccrecords['ud_username']; ?>"  name="lname" id="lname">
                     	</div>
                 	</div>
+
+            <div class="control-group">
+                    <label class="control-label" for="input01">Password</label>
+                    <div class="controls">
+                        <input type="text" class="input-medium" value="<?php echo $myaccrecords['ud_password']; ?>"  name="pswd" id="pswd">
+                            </div>
+                    </div>
 
                         <div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Sex</label>

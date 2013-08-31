@@ -21,7 +21,8 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['assessment']) || trim($_POST['assessment'])=='')
-	$_SESSION['error']['assessment'] = "Assessment Name - Required Field Can't be blank";
+
+	$_SESSION['require']['assessment'] = "Assessment Name - Required Field Can't be blank";
 
 if($avai == 1)
 	$_SESSION['error']['asstype'] = "Assessment Name - Assessment Name Already Exist";
@@ -33,7 +34,8 @@ if($avai == 1)
 // 	$_SESSION['error']['assignby'] = "Assign By - Required Option Can't be blank";
 
 if(!isset($_POST['question']) || trim($_POST['question'])=='')
-	$_SESSION['error']['question'] = "Question - Required Field Can't be blank";
+
+	$_SESSION['require']['question'] = "Question - Required Field Can't be blank";
 
 if(!isset($_POST['ansoption']) || trim($_POST['ansoption'])=='')
 	$_SESSION['error']['ansoption'] = "Answer Option - Required Option Can't be blank";

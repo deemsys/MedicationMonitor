@@ -50,7 +50,7 @@ else
      }
 }
 if(!isset($_POST['appnotes']) || trim($_POST['appnotes'])=='')
-	$_SESSION['error']['appnotes'] = "Notes - Required Field Can't be blank";
+	$_SESSION['require']['appnotes'] = "Notes - Required Field Can't be blank";
 
 if(!isset($_POST['patient']) || trim($_POST['patient'])=='Select')
 	$_SESSION['error']['patient'] = "Patient Name - Required option Can't be blank";

@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+function valid_check($key)
+{
+    if(isset($_SESSION['require'][$key]))
+    {
+        echo 'style="border:1px solid red;"';
+    }
+
+}
+
+
 if($_SESSION['adminid'] != '')
 {
 
@@ -66,6 +76,14 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';
 }
+
+if(isset($_SESSION['require']))
+{
+    echo '<div class="alert alert-error">
+    <button data-dismiss="alert" class="close" type="button">×</button>
+        <strong>Required Field(s) should not be blank!! </strong>
+      </div>';
+}
 ?>
 <?php
 if(isset($_SESSION['success']) && $_SESSION['success']!='')
@@ -90,7 +108,8 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Medicine Name</label>
                   	<div class="controls">
                         <?php
-                        if(isset($_SESSION['values']['medicinename']))
+                        if(isset($_SESSION['values']['medicinename'])&&$_SESSION['values']['medicinename']!='')//error it takes empty values also
+
                         {
                          ?>
                              <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['medicinename'];?>" name="medicinename" id="medicinename">
@@ -100,7 +119,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                         else
                         {
                           ?>
-                            <input type="text" class="input-medium" name="medicinename" id="medicinename">
+                            <input type="text" class="input-medium" <?php valid_check("medicinename")?> name="medicinename" id="medicinename">
                             <?php
                         }
                             ?>
@@ -213,6 +232,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
   </body>
 </html>
 <?php
+unset($_SESSION['require']);
 unset($_SESSION['error']);
 unset($_SESSION['success']);
 unset($_SESSION['values']['medicinename']);

@@ -20,7 +20,7 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['medicinename']) || trim($_POST['medicinename'])=='')
-	$_SESSION['error']['medicinename'] = "Medicine Name - Required Field Can't be blank";
+	$_SESSION['require']['medicinename'] = "Medicine Name - Required Field Can't be blank";
 
 // if(!isset($_POST['medicineid']) || trim($_POST['medicineid'])=='')
 // 	$_SESSION['error']['medicineid'] = "Medicine Id - Required Field Can't be blank";
@@ -34,7 +34,7 @@ elseif($avai == 1)
 
 
 
-if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
+if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0 && !isset($_SESSION['require']))
 {
 
 	foreach( $_POST as $key => $value )
