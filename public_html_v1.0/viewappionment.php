@@ -9,11 +9,13 @@ include('header.php');
 include('config.php');
 ?>
 
- <div class="container">
+    <div class="container" xmlns="http://www.w3.org/1999/html">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
+        <li><a href="index.php">Home</a> <span class="divider">/</span>
         <!--li class="active">Appointment</li><span class="divider">/</span></li-->
-        <li class="active">Appointments</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li class="active">Appointments</li>
+        <span>
+     <a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a></span>
       </ul>
     <div class="container-fluid">
     
