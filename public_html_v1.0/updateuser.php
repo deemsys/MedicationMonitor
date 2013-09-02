@@ -69,10 +69,28 @@ elseif(!eregi("^([0-9])+$",$_POST['mobile']))
 elseif(strlen($_POST['mobile'])!=10)
 	$_SESSION['error']['mobile'] = "Mobile - Enter Valid Mobile Number";
 
-if(!isset($_POST['address']) || trim($_POST['address'])=='')
-	$_SESSION['require']['address'] = "Address - Required Field Can't be blank";
+if(!isset($_POST['address1']) || trim($_POST['address1'])=='')
+	$_SESSION['require']['address1'] = "Address - Required Field Can't be blank";
 
+if(!isset($_POST['country']) || trim($_POST['country'])=='Select Country')
+	$_SESSION['error']['country'] = "Country - Required Option Can't be blank";
 
+if(!isset($_POST['state']) || trim($_POST['state'])=='')
+	$_SESSION['require']['state'] = "State - Required Field Can't be blank";
+
+elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['state']))
+	$_SESSION['error']['state'] = "State - Only Allowed Alphabets";
+	
+if(!isset($_POST['city']) || trim($_POST['city'])=='')
+	$_SESSION['require']['city'] = "City - Required Field Can't be blank";
+
+elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
+	$_SESSION['error']['city'] = "City - Only Allowed Alphabets";
+	
+if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
+	$_SESSION['require']['zipcode'] = "Zipcode - Required Field Can't be blank";
+elseif(!eregi("^[0-9]",$_POST['zipcode']))
+    $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
 
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
 {
@@ -99,7 +117,12 @@ $skype = $_POST['skype'];
 
 $facetime = $_POST['facetime'];
 $mobile = $_POST['mobile'];
-$address = $_POST['address'];
+$address1 = $_POST['address1'];
+$address2 = $_POST['address2'];
+$country = $_POST['country'];
+$state = $_POST['state'];
+$city = $_POST['city'];
+$zipcode = $_POST['zipcode'];
 
 //  echo $password; exit;
 
