@@ -4,6 +4,7 @@ session_start();
 function valid_check($key)
 {
     if(isset($_SESSION['require'][$key]))
+    
     {
         echo 'style="border:1px solid red;"';
     }

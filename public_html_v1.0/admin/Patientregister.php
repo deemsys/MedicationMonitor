@@ -11,7 +11,7 @@ function valid_check($key)
 }
 
 
-if(isset($_SESSION['userid']))
+if(isset($_SESSION['adminid']))
 {
 
 

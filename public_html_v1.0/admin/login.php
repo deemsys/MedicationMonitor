@@ -1,5 +1,14 @@
 <?php
 session_start();
+function valid_check($key)
+{
+    if(isset($_SESSION['require'][$key]))
+    {
+        echo 'style="border:1px solid red;"';
+    }
+
+}
+
 
 
 
@@ -42,6 +51,13 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';
 }
+if(isset($_SESSION['require']))
+    {
+        echo '<div class="alert alert-error">
+        <button data-dismiss="alert" class="close" type="button">×</button>
+        <strong>Required Field(s) should not be blank!! </strong>
+</div>';
+    }
 ?>
 
 
@@ -64,7 +80,7 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
                             else
                             {
                             ?>
-                    	<input type="text" class="input-medium" name="username" value="" id="input01">
+                    	<input type="text" class="input-medium" <?php valid_check("username")?> name="username" value="" id="input01">
                                 <?php
                             }
                                 ?>
@@ -85,7 +101,7 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
                             else
                             {
                                 ?>
-                                <input type="password" class="input-medium" name="pswd" value="" id="input02">
+                                <input type="password" class="input-medium" <?php valid_check("pswd")?> name="pswd" value="" id="input02">
                             <?php
                             }
                             ?>
@@ -171,6 +187,7 @@ if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
   </body>
 </html>
 <?php
+unset($_SESSION['require']);
 unset($_SESSION['error']);
 unset($_SESSION['success']);
 unset($_SESSION['values']['username']);

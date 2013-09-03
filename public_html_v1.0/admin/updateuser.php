@@ -55,10 +55,10 @@ elseif(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,
 
 
 if(!isset($_POST['skype']) || trim($_POST['skype'])=='')
-	$_SESSION['error']['skype'] = "Skype Id - Required Field Can't be blank";
+	$_SESSION['require']['skype'] = "Skype Id - Required Field Can't be blank";
 
 if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
-	$_SESSION['error']['facetime'] = "Facetime Id - Required Field Can't be blank";
+	$_SESSION['require']['facetime'] = "Facetime Id - Required Field Can't be blank";
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
 	$_SESSION['require']['mobile'] = "Mobile - Required Field Can't be blank";

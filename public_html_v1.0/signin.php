@@ -28,10 +28,10 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['username']) || trim($_POST['username'])=='')
-	$_SESSION['error']['username'] = "Required Field";
+	$_SESSION['require']['username'] = "Required Field";
 
 if(!isset($_POST['pswd']) || trim($_POST['pswd'])=='')
-	$_SESSION['error']['pswd'] = "Required Field";
+	$_SESSION['require']['pswd'] = "Required Field";
 
 if($countuser <= 0)
 	

@@ -27,10 +27,10 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['username']) || trim($_POST['username'])=='')
-	$_SESSION['error']['username'] = "User Name - Required Field Can't be blank";
+	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
 
 if(!isset($_POST['pswd']) || trim($_POST['pswd'])=='')
-	$_SESSION['error']['pswd'] = "Password - Required Field Can't be blank";
+	$_SESSION['require']['pswd'] = "Password - Required Field Can't be blank";
 
 if($countuser <= 0)
 	

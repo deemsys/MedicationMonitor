@@ -70,7 +70,7 @@ $num=0;
 
 //added by suresh
 if(isset($_GET['page']))
-    $page =mysql_escape_string($_GET['page']);
+    $page =mysql_real_escape_string($_GET['page']);
 else
     $page=0;
 

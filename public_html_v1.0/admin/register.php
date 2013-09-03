@@ -604,17 +604,17 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01">Skype Id</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Skype Id</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['skype']; ?>" name="skype" id="skype">
+                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['skype']; ?>" <?php valid_check("skype")?> name="skype" id="skype">
                     	</div>
                 	</div>
 
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01">Facetime Id</label>
+                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Facetime Id</label>
                   	<div class="controls">
-                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['facetime']; ?>" name="facetime" id="facetime">
+                    	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['facetime']; ?>" <?php valid_check("facetime")?> name="facetime" id="facetime">
                     	</div>
                 	</div>
 
