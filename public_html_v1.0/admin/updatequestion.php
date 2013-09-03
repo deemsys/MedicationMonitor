@@ -133,7 +133,7 @@ function getid(quest)
  <div class="container">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Assessment<span class="divider">/</span></li>
+        <li><a href="viewassessment.php">Assessment</a><span class="divider">/</span></li>
 	<li class="active">Add Questionnaire</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
