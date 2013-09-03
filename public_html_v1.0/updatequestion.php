@@ -341,7 +341,7 @@ else
 
 			<div class="control-group" id='TextBoxesGroup'>
                 <div id="TextBoxDiv1">
-
+                    <?php echo $html; ?>
                 </div>
                 	</div>
 

@@ -157,9 +157,13 @@ $('.clsmedipack .abc').on('click',function(){
 <?php
 if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
 {
+
 	echo '<div class="alert alert-error">
-        <button data-dismiss="alert" class="close" type="button">×</button>
-        <p><strong>Oh snap! Change a few things up and try submitting again.</strong></p>';
+        <button data-dismiss="alert" class="close" type="button">×</button>';
+    if(!isset($_SESSION['error']['noass']))
+    {
+     echo '<p><strong>Oh snap! Change a few things up and try submitting again.</strong></p>';
+    }
 	foreach($_SESSION['error'] as $key=>$value)
 	echo '<p>'.$value.'.</p>';
 	echo '</div>';

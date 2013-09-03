@@ -248,7 +248,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 ?>
             <td >
-<div title="Add Question" class="btn" onclick="getid(<?php echo $recordsquest['qd_question_id']; ?>);" ><a href="/admin/editquestion.php?id=<?=$_GET['id']?>&qid=<?=$recordsquest['qd_question_id']?>"><i class="icon-plus" value="<?php echo $recordsquest['qd_question_id']; ?>"></i></a></div>
+<div title="Add Question" class="btn" onclick="getid(<?php echo $recordsquest['qd_question_id']; ?>);" ><a href="editquestion.php?id=<?php echo $_GET['id'];?>&qid=<?php echo $recordsquest['qd_question_id'];?>"><i class="icon-plus" value="<?php echo $recordsquest['qd_question_id']; ?>"></i></a></div>
 		<a title="Delete Question" href="javascript:validate(<?php echo $recordsquest['qd_question_id']; ?>);" class="btn" ><i class="icon-trash"></i></a></td>
 
 <?php
@@ -257,7 +257,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 else
 {
 ?>
-            <td ><div title="Add Question" disabled="disabled" class="btn" ><a href="/admin/editquestion.php?id=<?=$_GET['id']?>&qid=<?=$recordsquest['qd_question_id']?>"><i class="icon-plus" value="<?php echo $recordsquest['qd_question_id']; ?>"></i></a></div>
+            <td ><div title="Add Question" disabled="disabled" class="btn" ><a href="editquestion.php?id=<?php echo $_GET['id'];?>&qid=<?php echo $recordsquest['qd_question_id']?>"><i class="icon-plus" value="<?php echo $recordsquest['qd_question_id']; ?>"></i></a></div>
 		<a title="Delete Question" href="javascript:validate(<?php echo $recordsquest['qd_question_id']; ?>);" class="btn" ><i class="icon-trash"></i></a></td>
 
 <?php

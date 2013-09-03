@@ -35,8 +35,12 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['username']) || trim($_POST['username'])=='')
+<<<<<<< .mine
+	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
+=======
 	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
 
+>>>>>>> .r34
 elseif($avai == 1)
 	$_SESSION['error']['username'] = "User Name - User Name Already Exist";
 
@@ -56,7 +60,7 @@ if(trim($_POST['pswd'])!= trim($_POST['cpswd']))
 	$_SESSION['error']['pswd'] = "Password - Password and Confirm Password are not match";
 
 if(!isset($_POST['sex']) || trim($_POST['sex'])=='')
-	$_SESSION['error']['sex'] = "Sex - Required Field Can't be blank";
+	$_SESSION['require']['sex'] = "Sex - Required Field Can't be blank";
 
 if(!isset($_POST['age']) || trim($_POST['age'])=='Select Age')
 	$_SESSION['error']['age'] = "Age - Required Option Can't be blank";
