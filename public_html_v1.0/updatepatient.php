@@ -35,12 +35,12 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['username']) || trim($_POST['username'])=='')
-<<<<<<< .mine
-	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
-=======
+
 	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
 
->>>>>>> .r34
+
+
+
 elseif($avai == 1)
 	$_SESSION['error']['username'] = "User Name - User Name Already Exist";
 
@@ -107,7 +107,7 @@ elseif(!ereg("[A-Za-z]", $_POST['city']))
 
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
 	$_SESSION['require']['zipcode'] = "Zipcode - Required Field Can't be blank";
-elseif(!eregi("[^0-9 ]",$_POST['zipcode']))
+elseif(!eregi("[0-9 ]",$_POST['zipcode']))
     $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
 
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
@@ -171,7 +171,7 @@ $zipcode = $_POST['zipcode'];
 //  	exit;
 
 	$_SESSION['success'] = "Your patient was registered successfully";
-        header("Location:Patientregister.php");
+        header("Location:Patientlist.php");
         exit;
 }
 

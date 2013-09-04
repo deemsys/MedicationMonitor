@@ -114,7 +114,7 @@ elseif(!ereg("[A-Za-z]", $_POST['city']))
 
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
 	$_SESSION['require']['zipcode'] = "Zipcode - Required Field Can't be blank";
-elseif(!eregi("[^0-9 ]",$_POST['zipcode']))
+elseif(!eregi("[0-9 ]",$_POST['zipcode']))
     $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
 
 
