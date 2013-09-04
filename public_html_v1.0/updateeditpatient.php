@@ -63,8 +63,6 @@ if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
     $_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
 elseif(!eregi("^([7-9]{1})([0-9]{9})$",$_POST['mobile']))
     $_SESSION['error']['mobile'] = "Mobile - Invalid Mobile Number";
-elseif($avai_mob>=1)
-    $_SESSION['error']['mobile']="Mobile - Mobile number already exists";
 
 // elseif(strlen($_POST['mobile'])!=10)
 // 	$_SESSION['error']['mobile'] = "Mobile - Enter Valid Mobile Number";

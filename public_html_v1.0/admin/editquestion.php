@@ -5,7 +5,6 @@ session_start();
 if($_SESSION['adminid'] != '')
 {
 
-
 include('header.php');
 
 require("config.php");
@@ -210,13 +209,14 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 		        </form>
 
 		<legend>Edit Indipendent Questionnaire</legend>	
+
          		<form action="updateeditquestion.php" method="POST">
               		<div class="control-group">
                         <input type="hidden" name="assesid" value="<?php echo $_GET['id']; ?>">
                         <input type="hidden" name="questionid" value="<?php echo $_GET['qid']; ?>">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Question</label>
                   	<div class="controls">
-                    	<textarea placeholder=" please enter your Question" name="question" rows="3" id="question" class="input-xlarge"><?=$recordsquest['qd_question_name']?></textarea>
+                    	<textarea placeholder=" please enter your Question" name="question" rows="3" id="question" class="input-xlarge"><?php echo $recordsquest['qd_question_name'];?></textarea>
                     	</div>
                 	</div>
 
@@ -245,7 +245,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<button type="submit" class="btn btn-primary">Submit</button>
 
 			</div>
-		        </fieldset>
+		        </div>
 		        </form>
 
 

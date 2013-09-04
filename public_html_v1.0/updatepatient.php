@@ -35,12 +35,18 @@ foreach($_POST as $key=>$value)
 }
 
 if(!isset($_POST['username']) || trim($_POST['username'])=='')
+<<<<<<< .mine
+=======
 
+>>>>>>> .r39
 	$_SESSION['require']['username'] = "User Name - Required Field Can't be blank";
+<<<<<<< .mine
+=======
 
 
 
 
+>>>>>>> .r39
 elseif($avai == 1)
 	$_SESSION['error']['username'] = "User Name - User Name Already Exist";
 
@@ -60,7 +66,12 @@ if(trim($_POST['pswd'])!= trim($_POST['cpswd']))
 	$_SESSION['error']['pswd'] = "Password - Password and Confirm Password are not match";
 
 if(!isset($_POST['sex']) || trim($_POST['sex'])=='')
-	$_SESSION['require']['sex'] = "Sex - Required Field Can't be blank";
+{
+    $_SESSION['error']['sex'] = "Sex - Required Field Can't be blank";
+    $_SESSION['values']['sex']='';
+
+}
+
 
 if(!isset($_POST['age']) || trim($_POST['age'])=='Select Age')
 	$_SESSION['error']['age'] = "Age - Required Option Can't be blank";
@@ -96,21 +107,26 @@ if(!isset($_POST['country']) || trim($_POST['country'])=='Select Country')
 
 if(!isset($_POST['state']) || trim($_POST['state'])=='')
 	$_SESSION['require']['state'] = "State - Required Field Can't be blank";
-elseif(!eregi("[A-Za-z]", $_POST['state']))
+elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['state']))
     $_SESSION['error']['state']='State - Only accept alphabets';
 
 
 if(!isset($_POST['city']) || trim($_POST['city'])=='')
 	$_SESSION['require']['city'] = "City - Required Field Can't be blank";
-elseif(!ereg("[A-Za-z]", $_POST['city']))
-    $_SESSION['error']['city']='City - Only accept alphabets';
+elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
+    $_SESSION['error']['city']="City - Only Allowed Alphabets";
 
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
 	$_SESSION['require']['zipcode'] = "Zipcode - Required Field Can't be blank";
+<<<<<<< .mine
+elseif(!eregi("[0-9]",$_POST['zipcode']))
+    $_SESSION['error']['zipcode'] = "Zipcode - Invalid Postal code";
+=======
 elseif(!eregi("[0-9 ]",$_POST['zipcode']))
     $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
+>>>>>>> .r39
 
-if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
+if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0 && !isset($_SESSION['require']))
 {
 
 	foreach( $_POST as $key => $value )

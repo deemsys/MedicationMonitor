@@ -19,7 +19,7 @@ $avai = mysql_num_rows($sqlcheck);
 
 //echo $avai; exit;
 
-if($avai==1)
+if($avai>0)
 {
     echo "<i class = 'icon-remove'></i>";
 // echo "User Name Not Available";

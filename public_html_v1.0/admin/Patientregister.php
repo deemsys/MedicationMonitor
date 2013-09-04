@@ -13,10 +13,7 @@ function valid_check($key)
 
 if(isset($_SESSION['adminid']))
 {
-
-
 include('header.php');
-
 ?>
 
  <div class="container">
