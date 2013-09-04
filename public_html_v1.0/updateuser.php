@@ -89,7 +89,7 @@ elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
 	
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
 	$_SESSION['require']['zipcode'] = "Zipcode - Required Field Can't be blank";
-elseif(!eregi("^[0-9]",$_POST['zipcode']))
+elseif (preg_match("[/^[0-9]{6}]",$_POST['zipcode']))
     $_SESSION['error']['zipcode'] = "Zipcode - Only accept Numbers";
 
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
