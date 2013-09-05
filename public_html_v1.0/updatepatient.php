@@ -174,7 +174,7 @@ $zipcode = $_POST['zipcode'];
 //  	exit;
 
 	$_SESSION['success'] = "Your patient was registered successfully";
-        header("Location:Patientlist.php");
+        header("Location:mypatientlist.php");
         exit;
 }
 

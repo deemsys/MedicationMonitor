@@ -23,7 +23,7 @@ include('config.php');
         <!--/span-->
 
 
-        <div class="span12">
+        <!--div class="span12"-->
           <div class="row-fluid">
 
            <div class="slate">

@@ -134,13 +134,13 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                     <?php if(isset($_SESSION['values']['remindername']))
 {
     ?>
-    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['remindername']; ?>" name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+    <input type="text" class="input-medium" value="<?php echo $_SESSION['values']['remindername']; ?>" <?php valid_check("remindername")?> name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
     <?php
 }
 else
 {
     ?>
-   <input type="text" class="input-medium" <?php valid_check("remindername")?>name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
+   <input type="text" class="input-medium" <?php valid_check("remindername")?> name="remindername" id="remindername">&nbsp;&nbsp;&nbsp;<strong id="notavai"></strong><i id="notempty"></i>
     <?php
 }
     ?>

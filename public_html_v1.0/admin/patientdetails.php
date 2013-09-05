@@ -188,7 +188,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 			<a title="Delete Patient" href="javascript:validate(<?php echo $_GET['id']; ?>);" class="btn"><i class="icon-trash"></i></a> </div>
 
 			<h2>Patient Name : <?php echo $patientrecords['pid_patient_username']; ?></h2>
-			<h2>Age : <?php echo $GLOBALS['age_group'][$patientrecords['pid_patient_age']].",  ".$patientrecords['pid_patient_sex']; ?></h2>
+			<h2>Age : <?php echo $patientrecords['pid_patient_age'].",".$patientrecords['pid_patient_sex']; ?></h2>
 
 
 					</div>
@@ -267,7 +267,7 @@ if($patientrecords['pid_patient_facetimeid'] !='')
 
 					<tr>
 						<td>Country </td>
-						<td><?php echo $GLOBALS['countries'][$patientrecords['pid_patient_country']]; ?></td>
+						<td><?php echo $patientrecords['pid_patient_country']; ?></td>
 						<td></td>
 					</tr>
 					

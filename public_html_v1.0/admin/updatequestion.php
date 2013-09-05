@@ -20,14 +20,14 @@ $(document).ready(function(){
  
     var counter = 1;
  
-    $("#addButton").live('click',function () {
+    $("#addButton").click(function () {
 
 	if(counter>10){
             alert("Only 10 textboxes allow");
             return false;
 	}   
 	var id = $(this).attr('name');
-	alert(id);
+//	alert(id);
 //  		var ince += 1;
 	//var dec	= counter - 1;
 var dec = $("#TextBoxesGroup_"+id+" .clscounter").length + 1;
@@ -319,7 +319,7 @@ else
 
 			<div class="control-group" id='TextBoxesGroup'>
                 <div id="TextBoxDiv1">
-
+                    <!--?php echo $html; ?-->
                 </div>
                 	</div>
 

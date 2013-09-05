@@ -126,10 +126,11 @@ $mobile = $_POST['mobile'];
 $address1 = $_POST['add1'];
 $address2 = $_POST['add2'];
 $state = $_POST['state'];
+    $country=$_POST['country'];
 $city = $_POST['city'];
 
 //  echo $password; exit;
-	$userdetail = "UPDATE tbl_patient_details SET  pid_patient_firstname = '".$firstname."', pid_patient_lastname = '".$lastname."', pid_patient_age = '".$age."', pid_patient_emailid = '".$email."', pid_patient_skypeid = '".$skype."', pid_patient_facetimeid = '".$facetime."', pid_patient_mobile = '".$mobile."', pid_patient_address1 = '".$address1."', pid_patient_address2 = '".$address2."', pid_patient_state = '".$state."', pid_patient_city = '".$city."' WHERE pid_patient_id =".$patient_id;
+	$userdetail = "UPDATE tbl_patient_details SET  pid_patient_firstname = '".$firstname."', pid_patient_lastname = '".$lastname."', pid_patient_age = '".$age."', pid_patient_emailid = '".$email."', pid_patient_skypeid = '".$skype."', pid_patient_facetimeid = '".$facetime."', pid_patient_mobile = '".$mobile."', pid_patient_address1 = '".$address1."', pid_patient_address2 = '".$address2."', pid_patient_state = '".$state."', pid_patient_city = '".$city."',pid_patient_country='".$country."' WHERE pid_patient_id =".$patient_id;
 
 
 

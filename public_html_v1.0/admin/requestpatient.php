@@ -48,6 +48,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 	<table class="table">
                   <thead>
                     <tr>
+                        <th>S.no</th>
                       <th> Patients Name</th>
                       <th> Patient User Name</th>
                       <th> Email</th>

@@ -272,7 +272,7 @@ if($patientrecords['pid_patient_facetimeid'] !='')
 
 					<tr>
 						<td>Country </td>
-						<td><?php echo $GLOBALS['countries'][$patientrecords['pid_patient_country']]; ?></td>
+						<td><?php echo $patientrecords['pid_patient_country']; ?></td>
 						<td></td>
 					</tr>
 					

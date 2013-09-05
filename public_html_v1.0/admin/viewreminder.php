@@ -27,7 +27,7 @@ include('header.php');
         <!--/span-->
 
 
-        <div class="span12">
+        <!--div class="span12"-->
        <div class="row-fluid">
 <?php
 if(isset($_SESSION['error']) && count($_SESSION['error'])>0)
