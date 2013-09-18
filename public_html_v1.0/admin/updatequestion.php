@@ -26,11 +26,11 @@ $(document).ready(function(){
             alert("Only 10 textboxes allow");
             return false;
 	}   
-	var id = $(this).attr('name');
+//	var id = $(this).attr('name');
 //	alert(id);
 //  		var ince += 1;
 	//var dec	= counter - 1;
-var dec = $("#TextBoxesGroup_"+id+" .clscounter").length + 1;
+//var dec = $("#TextBoxesGroup_"+id+" .clscounter").length + 1;
 //   alert(counter);
         var divAfter = "#TextBoxDiv"+dec;
 	var newTextBoxDiv = $(document.createElement('div'))
@@ -132,15 +132,15 @@ function getid(quest)
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li><a href="viewassessment.php">Assessment</a><span class="divider">/</span></li>
-	<li class="active">Add Questionnaire</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="index.php">Home</a> <span class="divider">/</span>
+        <a href="viewassessment.php">Assessment</a><span class="divider">/</span>
+	<!--li class="active"-->Add Questionnaire</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+       
           <div class="row-fluid">
           
           <div class="slate">
@@ -329,6 +329,7 @@ else
 
 			<input type='button' class="btn" value='Add Answer' id='addButton'>
 			<input type='button' class="btn" value='Remove Answer' id='removeButton'>
+<!-- 			<input type='button' class="btn" value='Get TextBox Value' id='getButtonValue'> -->
                     	</div>
                 	</div>
 

@@ -18,12 +18,13 @@ switch($type){
 
 		if(mysql_query($userdetail)){
 			$json 		= '{ "serviceresponse" : { "servicename" : "Accept Request Patient", "success" : "Yes","message" : "1" } }';
-		}
-		else{
-			echo '{ "serviceresponse" : { "servicename" : "Accept Request Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
-		}
-		echo $json;
 		$_SESSION['success'] = "Accept Request Provider successfully";
+        }
+		else{
+			$json =  '{ "serviceresponse" : { "servicename" : "Accept Request Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		}
+		//echo $json;
+		
 
 		header("Location:requestpatient.php");
 
@@ -38,13 +39,14 @@ switch($type){
 
 		if(mysql_query($userdetail)){
 			$json 		= '{ "serviceresponse" : { "servicename" : "Ignore Request Patient", "success" : "Yes","message" : "1" } }';
-		}
+		    $_SESSION['success'] = "Ignore Request Patient successfully";
+        }
 		else{
-			echo '{ "serviceresponse" : { "servicename" : " Ignore Request Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+			$json =  '{ "serviceresponse" : { "servicename" : " Ignore Request Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 		}
-		echo $json;
+		//echo $json;
 
-		$_SESSION['success'] = "Ignore Request Patient successfully";
+	
 
 		header("Location:requestpatient.php");
 

@@ -20,13 +20,14 @@ switch($type){
 
 			if(mysql_query($deletedetail)){
 				$json 		= '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "Yes","message" : "1" } }';
-			}
+		    $_SESSION['success'] = "Assign Medicine was Deleted successfully";
+        }
 			else{
-				echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+				$json =  '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 			}
-			echo $json;
+			//echo $json;
 
-			$_SESSION['success'] = "Assign Medicine was Deleted successfully";
+		
 
 		header("Location:patientdetails.php?id=".$patient_id1);
 	
@@ -42,13 +43,14 @@ switch($type){
 
 		if(mysql_query($deletedetail)){
 				$json 		= '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "Yes","message" : "1" } }';
-			}
-			else{
-				echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
-			}
-			echo $json;
-
 			$_SESSION['success'] = "Assign Assessment was Deleted successfully";
+            }
+			else{
+				$json =  '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+			}
+			//echo $json;
+
+			
 
 		header("Location:patientdetails.php?id=".$patient_id2);
 	
@@ -66,13 +68,14 @@ switch($type){
 
 		if(mysql_query($deletedetail)){
 				$json 		= '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "Yes","message" : "1" } }';
-			}
+			    $_SESSION['success'] = "Assign Reminder was Deleted successfully";
+            }
 			else{
-				echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+				$json =  '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 			}
-			echo $json;
+			//echo $json;
 
-			$_SESSION['success'] = "Assign Reminder was Deleted successfully";
+		
 
 		header("Location:patientdetails.php?id=".$patient_id3);
 	
@@ -88,13 +91,14 @@ switch($type){
 
 		if(mysql_query($deletedetail)){
 				$json 		= '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "Yes","message" : "1" } }';
-			}
-			else{
-				echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
-			}
-			echo $json;
-
 			$_SESSION['success'] = "Assign Appointment was Deleted successfully";
+            }
+			else{
+			$json =  '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+			}
+			//echo $json;
+
+			
 
 		header("Location:patientdetails.php?id=".$patient_id4);
 	

@@ -9,14 +9,14 @@ include('header.php');
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Request Patients</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="index.php">Home</a> <span class="divider">/</span>
+        <!--li class="active"-->Request Patients</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
 
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+       
           <div class="row-fluid">
 
                 <div class="slate">
@@ -73,7 +73,7 @@ $sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_re
 	$recordsreminder123 = $total_pages[$num];
 
 	$targetpage = "requestpatient.php";
-	$limit = 6;
+	$limit = 10;
 	$stages = 3;
 
 if(isset($_GET['page']))

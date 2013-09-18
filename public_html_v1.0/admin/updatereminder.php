@@ -1,7 +1,7 @@
 <?php
 // echo "<pre>";
 //   print_r($_POST);  exit;
-
+error_reporting(0);
 session_start();
 require("config.php");
 
@@ -21,9 +21,12 @@ $nameexist = mysql_fetch_array($sqlremname);
 
 $avai = mysql_num_rows($sqlremname);
 
-foreach($_POST as $key=>$value)
+$keys=array_keys($_POST);
+
+for($k=0;$k<count($keys);$k++)
 {
-	$_SESSION['values'][$key] = $value;
+    $key=$keys[$k];
+	$_SESSION['values'][$key] = $_POST[$key];
 }
 
 if(!isset($_POST['remindername']) || trim($_POST['remindername'])=='')
@@ -99,6 +102,14 @@ $datetime = $dailytime.' '.$timeformat;
 	}
 
 // $abc=trim($medicin_id, '/');
+//$keys=array_keys($_POST['assessment']);
+
+//for($k=0;$k<count($keys);$k++)
+//{
+  //  $key=$keys[$k];
+    //$assessment_id.=$_POST['assessment'][$key].',';
+//}
+
 	foreach( $_POST['assessment'] as $assessment => $assessmentvalue )
 	{
 
@@ -114,16 +125,16 @@ $datetime = $dailytime.' '.$timeformat;
 	
 // 		$json 		= '{ "serviceresponse" : { "servicename" : "User Details", "success" : "Yes","message" : "1","userid " : "'.$row->ud_user_id.'","username" : "'.$row->ud_username.'","firstname" : "'.$row->ud_firstname.'","lastname" : "'.$row->ud_lastname.'","password" : "'.$row->ud_password.'","sex" : "'.$row->ud_sex.'","age" : "'.$row->ud_age.'","emailid" : "'.$row->ud_email_id.'","skypeid" : "'.$row->ud_skype_id.'","facetimeid" : "'.$row->ud_facetime_id.'","mobile" : "'.$row->ud_mobile.'","address" : "'.$row->ud_address.'","date" : "'.$row->ud_date.'","status" : "'.$row->ud_status.'" } }';
 		$json 		= '{ "serviceresponse" : { "servicename" : "Reminder Details", "success" : "Yes","message" : "1" } }';
-	
+	    $_SESSION['success'] = "Your Reminder was submitted successfully";
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Reminder Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		$json =  '{ "serviceresponse" : { "servicename" : "Reminder Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
 // 	exit;
 
-	$_SESSION['success'] = "Your Reminder was submitted successfully";
+
  }
 
 header("Location:reminders.php");

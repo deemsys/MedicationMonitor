@@ -48,7 +48,7 @@ var dec = $("#TextBoxesMorng_"+id+" .clscounter").length + 1;
 	var newTextBoxDiv = $(document.createElement('div'))
 		.attr("id", 'TextBoxMor' + dec).attr("class", 'clscounter');
 
-	newTextBoxDiv.after(divAfter).html('<div class="control-group"><div class="controls"><select id="select01" class="input-small" name="hour'+id+'[]" id="hour'+id+"_"+dec + '"><option>Select Time</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option></select><select class="input-small" name="min'+id+'[]" id="min'+id+"_"+dec + '"><option>00</option><option>15</option><option>30</option><option>45</option></select><input type="hidden" name="medid'+id+'" value="'+id+'"></div></div>');
+	newTextBoxDiv.after(divAfter).html('<div class="control-group"><div class="controls"><select id="select01" class="input-medium" name="hour'+id+'[]" id="hour'+id+"_"+dec + '"><option>Select Time</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option></select><select class="input-small" name="min'+id+'[]" id="min'+id+"_"+dec + '"><option>00</option><option>15</option><option>30</option><option>45</option></select><input type="hidden" name="medid'+id+'" value="'+id+'"></div></div>');
 
 	newTextBoxDiv.appendTo("#TextBoxesMorng_"+id);
 

@@ -86,8 +86,8 @@ $username = $records['md_username'];
 			<li><a href="patientlist.php">List of Patients</a></li>
                         <li<?php if ($count11) { ?> style="background-color:#B94A48; font-size:15px;font-weight:bold;"><?php } ?><a href="requestpatient.php">Request Pending</a></li>
 <!-- 			<li><a href="mypatientlist.php">My Patients</a></li> -->
-	</li>
-		</ul>
+
+		</ul></li>
 
 
             <li class="dropdown">
@@ -95,8 +95,8 @@ $username = $records['md_username'];
               <ul class="dropdown-menu">
 		<li><a href="register.php">Add Provider</a></li>
               <li><a href="providerlist.php">List of Providers</a></li>
-              </li>
-              </ul>
+
+              </ul></li>
     <li class="dropdown">
         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i>Reminders<b class="caret"></b></a>
         <ul class="dropdown-menu">

@@ -81,16 +81,16 @@ $patient_id = $sqlpatient['pid_patient_id'];
 
 	if(mysql_query($reminderdetail))
 	{
-		$json 		= '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "Yes","message" : "1" } }';
-		$_SESSION['success'] = "Your Appointment was submitted successfully";
+	//	$json 		= '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "Yes","message" : "1" } }';
+		
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		//echo '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+//	echo $json;
 // 	exit;
-
+$_SESSION['success'] = "Your Appointment was submitted successfully";
                 header("Location:viewappionment.php");
 
 		exit;

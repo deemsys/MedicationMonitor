@@ -16,16 +16,16 @@ $appnotes = $_POST['notes'];
 	{
 
 		$json 		= '{ "serviceresponse" : { "servicename" : "Appointment Deleted", "success" : "Yes","message" : "1" } }';
-	
+	    $_SESSION['success'] = "Your Appointment was Deleted successfully";
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Appointment Deleted", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		$json =  '{ "serviceresponse" : { "servicename" : "Appointment Deleted", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
 // 	exit;
 
-	$_SESSION['success'] = "Your Appointment was Deleted successfully";
+
 
 header("Location:viewappionment.php");
 

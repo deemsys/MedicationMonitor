@@ -36,12 +36,12 @@ switch($type){
 			$userdetail = "INSERT INTO tbl_relationship_details (rs_relation_patientid, rs_relation_providerid, rs_relation_status) VALUES ('".$patient_id1."', '".$provider_id1."', '1')";
 
 			if(mysql_query($userdetail)){
-				$json 		= '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "Yes","message" : "1" } }';
+			//	$json 		= '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "Yes","message" : "1" } }';
 			}
 			else{
-				echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+			//	echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 			}
-			echo $json;
+		//	echo $json;
 
 			$_SESSION['success'] = "Provider Assign successfully";
 		}
@@ -74,12 +74,12 @@ switch($type){
 			$userdetail = "INSERT INTO tbl_relationship_details (rs_relation_patientid, rs_relation_providerid, rs_relation_status) VALUES ('".$patient_id."', '".$provider_id."', '1')";
 
 			if(mysql_query($userdetail)){
-				$json 		= '{ "serviceresponse" : { "servicename" : "Assign Patient", "success" : "Yes","message" : "1" } }';
+			//	$json 		= '{ "serviceresponse" : { "servicename" : "Assign Patient", "success" : "Yes","message" : "1" } }';
 			}
 			else{
-				echo '{ "serviceresponse" : { "servicename" : "Assign Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+			//	echo '{ "serviceresponse" : { "servicename" : "Assign Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 			}
-			echo $json;
+			//echo $json;
 
 			$_SESSION['success'] = "Patient Assign successfully";
 		}

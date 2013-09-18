@@ -56,14 +56,14 @@ $.post("medicationempty.php",{ medid: medicineid },function(data){
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="Medicinelist.php">Medication</a> <span class="divider">/</span></li>
-        <li class="active">Add Medicine</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="Medicinelist.php">Medication</a> <span class="divider">/</span>
+        <!--li class="active"-->Add Medicine</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+       
           <div class="row-fluid">
 <div class="slate">
 <?php

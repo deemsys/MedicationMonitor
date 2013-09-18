@@ -19,14 +19,14 @@ include('loadAC.php');
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="patientlist.php">Patient</a> <span class="divider">/</span></li>
-        <li class="active">Register</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="patientlist.php">Patient</a> <span class="divider">/</span>
+        <!--li class="active"-->Register</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+        
           <div class="row-fluid">
 <div class="slate">
 <?php
@@ -148,7 +148,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
                     <div class="control-group">
-                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Mobile</label>
+                        <label class="control-label" for="input01">Mobile</label>
                         <div class="controls">
                             <input type="text" class="input-medium" name="mobile" id="mobile"><strong id="notavai"></strong><i id="notempty"></i>
                         </div>
@@ -156,7 +156,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
                     <div class="control-group">
-                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Address1</label>
+                        <label class="control-label" for="input01">Address1</label>
                         <div class="controls">
                             <input type="text" class="input-medium" name="address1" id="address1">
                         </div>
@@ -170,7 +170,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                     </div>
 
                     <div class="control-group">
-                        <label for="select01" class="control-label"><span style=" color : red;">*</span>Country</label>
+                        <label for="select01" class="control-label">Country</label>
                         <div class="controls">
                             <select id="select01" name="country" class="input-large">
                               <?php load_country('null');?>
@@ -180,21 +180,21 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
                     <div class="control-group">
-                        <label class="control-label" for="input01"><span style=" color : red;">*</span>State</label>
+                        <label class="control-label" for="input01">State</label>
                         <div class="controls">
                             <input type="text" class="input-medium"  name="state" id="state">
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label" for="input01"><span style=" color : red;">*</span>City</label>
+                        <label class="control-label" for="input01">City</label>
                         <div class="controls">
                             <input type="text" class="input-medium"  name="city" id="city">
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label" for="input01"><span style=" color : red;">*</span>Postal Code</label>
+                        <label class="control-label" for="input01">Postal Code</label>
                         <div class="controls">
                             <input type="text" class="input-medium"  name="zipcode" id="zipcode">
                         </div>
@@ -275,7 +275,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 {
                     echo 'Checked="true"';
                 }
-                ?> value="Female"> Female</label>
+                ?> name="sex" value="Female"> Female</label>
                     	</div>
                 	</div>
 
@@ -317,7 +317,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Mobile</label>
+                  	<label class="control-label" for="input01">Mobile</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['mobile']; ?>" <?php valid_check("mobile")?>
                                name="mobile" id="mobile">
@@ -326,7 +326,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
               		
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Address1</label>
+                  	<label class="control-label" for="input01">Address1</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['address1']; ?>" <?php valid_check("address1")?>
                                name="address1" id="address1">
@@ -341,7 +341,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
 			<div class="control-group">
-			<label for="select01" class="control-label"><span style=" color : red;">*</span>Country</label>
+			<label for="select01" class="control-label">Country</label>
 			<div class="controls">
 			<select id="select01" name="country" class="input-large">
 			<?php load_country($_SESSION['values']['country'])?>
@@ -351,7 +351,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>State</label>
+                  	<label class="control-label" for="input01">State</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['state']; ?>"<?php valid_check("state")?>
                                name="state" id="state">
@@ -359,7 +359,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>City</label>
+                  	<label class="control-label" for="input01">City</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['city']; ?>"<?php valid_check("city")?>
                                name="city" id="city">
@@ -367,7 +367,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                 	</div>
 
               		<div class="control-group">
-                  	<label class="control-label" for="input01"><span style=" color : red;">*</span>Postal Code</label>
+                  	<label class="control-label" for="input01">Postal Code</label>
                   	<div class="controls">
                     	<input type="text" class="input-medium" value="<?php echo $_SESSION['values']['zipcode']; ?>" <?php valid_check("zipcode")?>
                                name="zipcode" id="zipcode">

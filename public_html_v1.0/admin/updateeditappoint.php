@@ -42,16 +42,18 @@ $appnotes = $_POST['notes'];
 	{
 
 		$json 		= '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "Yes","message" : "1" } }';
-	
+	$_SESSION['success'] = "Your Appointment was Updated successfully";
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		$json =  '{ "serviceresponse" : { "servicename" : "Appointment Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
 // 	exit;
+header("Location:viewappionment.php");
+exit;
 
-	$_SESSION['success'] = "Your Appointment was Updated successfully";
+	
  }
 
 header("Location:editappoint.php?id=".$app_id."&type=edit");

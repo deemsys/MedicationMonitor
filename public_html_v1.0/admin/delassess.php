@@ -33,14 +33,14 @@ require("config.php");
 	if(mysql_query($update))
 	{
 
-		$json 		= '{ "serviceresponse" : { "servicename" : "Delete Assessment", "success" : "Yes","message" : "1" } }';
+		//$json 		= '{ "serviceresponse" : { "servicename" : "Delete Assessment", "success" : "Yes","message" : "1" } }';
 	
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Delete Assessment", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+	//	echo '{ "serviceresponse" : { "servicename" : "Delete Assessment", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
  	//exit;
 
 	$_SESSION['success'] = "Your Assessment was Deleted successfully";

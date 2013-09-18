@@ -17,8 +17,8 @@ include('header.php');
  <div class="container">
  <ul class="breadcrumb">
 
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">View Reminders</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="index.php">Home</a> <span class="divider">/</span>
+        <!--li class="active"-->View Reminders</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
 

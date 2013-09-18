@@ -21,17 +21,18 @@ require("config.php");
 	if(mysql_query($update))
 	{
 
-		$json 		= '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "Yes","message" : "1" } }';
+	///	$json 		= '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "Yes","message" : "1" } }';
+    $_SESSION['success'] = "Your Patient was Deleted successfully";
 	
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+	//	echo '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+//	echo $json;
  	//exit;
 
-	$_SESSION['success'] = "Your Patient was Deleted successfully";
+	
 
  header("Location:mypatientlist.php");
 

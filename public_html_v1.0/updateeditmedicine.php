@@ -50,16 +50,17 @@ $direction = $_POST['direction'];
 	{
 
 		$json 		= '{ "serviceresponse" : { "servicename" : "Update Medicine Details", "success" : "Yes","message" : "1" } }';
+        $_SESSION['success'] = "Your Medicine was Updated successfully";
 	
 	}
 	else
 	{
 		echo '{ "serviceresponse" : { "servicename" : "Update Medicine Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
 
 
-	$_SESSION['success'] = "Your Medicine was Updated successfully";
+	
 header("Location:Medicinelist.php");
 exit;
 }

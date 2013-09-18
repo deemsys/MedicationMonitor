@@ -49,7 +49,7 @@ if(!isset($_POST['age']) || trim($_POST['age'])=='')
 if(!isset($_POST['email']) || trim($_POST['email'])=='')
 	$_SESSION['error']['email'] = "Email Id - Required Field Can't be blank";
 
-elseif(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$",$_POST['email']))
+elseif(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",$_POST['email']))
 	$_SESSION['error']['email'] = "E-Mail - Enter the Valid E-mail format";
 
 /*
@@ -61,7 +61,7 @@ if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
     $_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
-elseif(!eregi("^([7-9]{1})([0-9]{9})$",$_POST['mobile']))
+elseif(!preg_match("/^([7-9]{1})([0-9]{9})$/i",$_POST['mobile']))
     $_SESSION['error']['mobile'] = "Mobile - Invalid Mobile Number";
 
 // elseif(strlen($_POST['mobile'])!=10)
@@ -86,18 +86,20 @@ if(!isset($_POST['age']) || trim($_POST['age'])=='Select Age')
 
 if(!isset($_POST['state']) || trim($_POST['state'])=='')
 	$_SESSION['error']['state'] = "State - Required Field Can't be blank";
-elseif(!eregi("[A-Za-z]", $_POST['state']))
-    $_SESSION['error']['state']='State - Only accept alphabets';
+
+elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['state']))
+	$_SESSION['error']['state'] = "State - Only Allowed Alphabets";
 
 
 if(!isset($_POST['city']) || trim($_POST['city'])=='')
 	$_SESSION['error']['city'] = "City - Required Field Can't be blank";
-elseif(!ereg("[A-Za-z]", $_POST['city']))
-    $_SESSION['error']['city']='City - Only accept alphabets';
+
+elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
+	$_SESSION['error']['city'] = "City - Only Allowed Alphabets ";
 
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
     $_SESSION['error']['zipcode'] = "Postal Code- Required Field Can't be blank";
-elseif(!eregi("^[0-9]",$_POST['zipcode']))
+elseif(!preg_match("/^[0-9]/i",$_POST['zipcode']))
     $_SESSION['error']['zipcode'] = "Postal Code- Only accept Numbers";
 
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
@@ -138,22 +140,23 @@ $city = $_POST['city'];
 // echo $count; exit;
 	if(mysql_query($userdetail))
 	{
-		$row		= mysql_fetch_object($query);
+	//	$row		= mysql_fetch_object($query);
 	
 // 		$json 		= '{ "serviceresponse" : { "servicename" : "User Details", "success" : "Yes","message" : "1","userid " : "'.$row->ud_user_id.'","username" : "'.$row->ud_username.'","firstname" : "'.$row->ud_firstname.'","lastname" : "'.$row->ud_lastname.'","password" : "'.$row->ud_password.'","sex" : "'.$row->ud_sex.'","age" : "'.$row->ud_age.'","emailid" : "'.$row->ud_email_id.'","skypeid" : "'.$row->ud_skype_id.'","facetimeid" : "'.$row->ud_facetime_id.'","mobile" : "'.$row->ud_mobile.'","address" : "'.$row->ud_address.'","date" : "'.$row->ud_date.'","status" : "'.$row->ud_status.'" } }';
 		$json 		= '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "Yes","message" : "1" } }';
+        $_SESSION['success'] = "Your Patient Details was Updated successfully";
 	
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		//echo '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
 // 	exit;
 
-	$_SESSION['success'] = "Your Patient Details was Updated successfully";
+	
 }
 
-header("Location:editpatient.php?id=".$patient_id);
+header("Location:patientdetails.php?id=".$patient_id);
 
 ?>

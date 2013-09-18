@@ -45,14 +45,14 @@ $(function() {
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li class="active">Appointment</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="index.php">Home</a> <span class="divider">/</span>
+        <!--li class="active"-->Appointment</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+        
           <div class="row-fluid">
 <div class="slate">
 <?php
@@ -94,19 +94,12 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
               			<p align="right"><span style=" color : red;">*</span>Required Field Can't be blank</p>
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Appointment Date</label>
-                  	<div class="controls">
-                       <?php if(isset($_SESSION['require']['appdate']))
-{
-    ?>
-                    	<input type="text" class="input-medium" <?php valid_check("appdate")?>  style="border-bottom-color :#ff0000;" placeholder="Select your Date" name="appdate" id="appdate">
-    <?php } else
-                        { ?>
-                        <input type="text" class="input-medium"  style="color : #999999;" placeholder="Select your Date" name="appdate" id="appdate">
-                        <?php
-}
-                        ?>
+                  
+                        <div class="controls">
+                        <input type="datetime" class="input-medium" style="color : #999999;" placeholder="Select your Date" <?php valid_check("appdate")?> name="appdate" id="appdate">
                     	</div>
                 	</div>
+                	
 
 			<div class="control-group">
                   	<label class="control-label" for="input01"><span style=" color : red;">*</span>Notes</label>

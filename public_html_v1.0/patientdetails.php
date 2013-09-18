@@ -141,16 +141,16 @@ $('.clsmedipack .abc').on('click',function(){
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
-        <li><a href="javascript:history.go(-1);">Patient Details</a><span class="divider">/</span></li>
-        <li class="active"><?php echo $patientrecords['pid_patient_username'];?><a></a></li>
+        <li><a href="index.php">Home</a> <span class="divider">/</span>
+        <a href="javascript:history.go(-1);">Patient Details</a><span class="divider">/</span>
+        <!--li class="active"--><?php echo $patientrecords['pid_patient_username'];?><a></a></li>
      <i class="icon-chevron-left pull-right"></i>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+        
           <div class="row-fluid">
           
           <div class="slate">
@@ -783,14 +783,15 @@ echo "</td>";
           </div><!--/row-->
           <!--/row-->
         </div><!--/span-->
-      </div><!--/row-->
-
-      <hr>
+        <hr>
 
       <footer>
         <p>&copy; Medication Monitor 2012</p>
       </footer>
 
+      </div><!--/row-->
+
+      
     </div>
     </div>
     <!--/.fluid-container-->

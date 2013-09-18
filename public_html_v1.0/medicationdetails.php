@@ -10,12 +10,14 @@ session_start();
 require("config.php");
 $medname = $_POST['medicinename'];
 
-$usercheck = "SELECT * FROM tbl_medication_details WHERE md_medicine_name=".$medname;
+$usercheck = "SELECT count(*) FROM tbl_medication_details WHERE md_medicine_name=$medname";
 
 $sqlcheck = mysql_query($usercheck);
 
-$avai=0;
-$avai = mysql_num_rows($sqlcheck);
+//$avai=0;
+//$avai = $sqlcheck->num_rows;
+
+//$mob_avai=count($avai);
 
 
 $sql11 = "SELECT * FROM tbl_user_details WHERE ud_user_id=".$_SESSION['userid'];
@@ -23,6 +25,7 @@ $sql11 = "SELECT * FROM tbl_user_details WHERE ud_user_id=".$_SESSION['userid'];
 $query11 = mysql_query($sql11);
 
 $rec11 = mysql_fetch_array($query11);
+
 $providername = $rec11['ud_username'];
 
 
@@ -38,9 +41,9 @@ foreach($_POST as $key=>$value)
 // 	$_SESSION['error']['medicineid'] = "Medicine Id - Only Allowed Numbers";
 
 if(!isset($_POST['medicinename']) || trim($_POST['medicinename'])=='')
-	$_SESSION['require']['medicinename'] = "Medicine Name - Required Field Can't be blank";
-elseif($avai==1)
-	$_SESSION['error']['medicinename'] = "Medicine Name - Medicine Name Already Exist";
+	$_SESSION['require']['medicinename'] = "Medicine Name - Required Field Can't be blank".$sqlcheck;
+elseif($sqlcheck>0)
+	$_SESSION['error']['medicinename'] = "Medicine Name - Medicine Name Already Exist".$sqlcheck;
 
 
 
@@ -103,9 +106,9 @@ $user_id = $_SESSION['userid'];
 
 	if(mysql_query($medication))
 	{
-		$_SESSION['success'] = "Your Medicine was Added successfully";
+		$_SESSION['success'] = "Your Medicine was Added successfully".$sqlcheck;
 	
-	header("Location:medicinelist.php");
+	header("Location:Medicinelist.php");
     exit;
 	}
 

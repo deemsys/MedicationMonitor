@@ -25,7 +25,7 @@ include('header.php');
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+        <!--div class="span12"-->
           <div class="row-fluid">
           <div style="width:500px; margin:auto;">
 <div class="slate">

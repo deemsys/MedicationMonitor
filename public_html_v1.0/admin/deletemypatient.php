@@ -22,16 +22,16 @@ require("config.php");
 	{
 
 		$json 		= '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "Yes","message" : "1" } }';
-	
+	    $_SESSION['success'] = "Patient was Deleted successfully";
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+	$json =  '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+	//echo $json;
  	//exit;
 
-	$_SESSION['success'] = "Patient was Deleted successfully";
+
 
  header("Location:patientlist.php");
 

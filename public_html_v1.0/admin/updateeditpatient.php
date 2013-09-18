@@ -5,11 +5,11 @@
 session_start();
 require("config.php");
 
-
+$patient_id = $_GET['id'];
 //Added by suresh
 $mobile = $_POST['mobile'];
 
-$mobcheck = "SELECT * FROM tbl_patient_details WHERE pid_patient_mobile='$mobile'";
+$mobcheck = "SELECT * FROM tbl_patient_details WHERE pid_patient_mobile='$mobile' && pid_patient_id!='$patient_id'";
 
 $sqlcheck_mob = mysql_query($mobcheck);
 
@@ -26,7 +26,7 @@ $avai_mob = mysql_num_rows($sqlcheck_mob);
 
 
 
-$patient_id = $_GET['id'];
+
 
 foreach($_POST as $key=>$value)
 {
@@ -50,7 +50,7 @@ if(!isset($_POST['age']) || trim($_POST['age'])=='')
 if(!isset($_POST['email']) || trim($_POST['email'])=='')
 	$_SESSION['error']['email'] = "Email Id - Required Field Can't be blank";
 
-elseif(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$",$_POST['email']))
+elseif(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/",$_POST['email']))
 	$_SESSION['error']['email'] = "E-Mail - Enter the Valid E-mail format";
 
 /*
@@ -62,7 +62,7 @@ if(!isset($_POST['facetime']) || trim($_POST['facetime'])=='')
 
 if(!isset($_POST['mobile']) || trim($_POST['mobile'])=='')
     $_SESSION['error']['mobile'] = "Mobile - Required Field Can't be blank";
-elseif(!eregi("^([7-9]{1})([0-9]{9})$",$_POST['mobile']))
+elseif(!preg_match("/^([7-9]{1})([0-9]{9})$/",$_POST['mobile']))
     $_SESSION['error']['mobile'] = "Mobile - Invalid Mobile Number";
 elseif($avai_mob>=1)
     $_SESSION['error']['mobile']="Mobile - Mobile number already exists";
@@ -101,10 +101,10 @@ elseif(!preg_match("/^[[a-z]+[\s\_\-\.]*[a-z]*[\.]*[a-z]*]*$/i",$_POST['city']))
 if(!isset($_POST['zipcode']) || trim($_POST['zipcode'])=='')
 	$_SESSION['error']['zipcode'] = "Zipcode - Required Field Can't be blank";
 
-elseif(!preg_match("/^(\d{5})(?:[-\s]*(\d{4}))?$/",$_POST['zipcode']))
+elseif(!preg_match("/[0-9 ]/",$_POST['zipcode']))
 	$_SESSION['error']['zipcode'] = "Zipcode - Enter Valid Zip Code";
 
-if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
+if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0 )
 {
 
 	foreach( $_POST as $key => $value )
@@ -135,7 +135,7 @@ $city = $_POST['city'];
 $zipcode = $_POST['zipcode'];
 
 //  echo $password; exit;
-	$userdetail = "UPDATE tbl_patient_details SET  pid_patient_firstname = '".$firstname."', pid_patient_lastname = '".$lastname."', pid_patient_sex = '".$sex."', pid_patient_age = '".$age."', pid_patient_emailid = '".$email."', pid_patient_skypeid = '".$skype."', pid_patient_facetimeid = '".$facetime."', pid_patient_mobile = '".$mobile."', pid_patient_address1 = '".$address1."', pid_patient_address2 = '".$address2."', pid_patient_country = '".$country."', pid_patient_state = '".$state."', pid_patient_city = '".$city."', pid_patient_zipcode = '".$zipcode."' WHERE pid_patient_id =".$patient_id;
+	$userdetail = "UPDATE tbl_patient_details SET  pid_patient_firstname = '".$firstname."', pid_patient_lastname = '".$lastname."', pid_patient_age = '".$age."', pid_patient_emailid = '".$email."', pid_patient_skypeid = '".$skype."', pid_patient_facetimeid = '".$facetime."', pid_patient_mobile = '".$mobile."', pid_patient_address1 = '".$address1."', pid_patient_address2 = '".$address2."', pid_patient_state = '".$state."', pid_patient_city = '".$city."',pid_patient_country='".$country."',pid_patient_zipcode='".$zipcode."' WHERE pid_patient_id =".$patient_id;
 
 
 
@@ -143,22 +143,26 @@ $zipcode = $_POST['zipcode'];
 // echo $count; exit;
 	if(mysql_query($userdetail))
 	{
-		$row		= mysql_fetch_object($query);
+		//$row		= mysql_fetch_object($query);
 	
 // 		$json 		= '{ "serviceresponse" : { "servicename" : "User Details", "success" : "Yes","message" : "1","userid " : "'.$row->ud_user_id.'","username" : "'.$row->ud_username.'","firstname" : "'.$row->ud_firstname.'","lastname" : "'.$row->ud_lastname.'","password" : "'.$row->ud_password.'","sex" : "'.$row->ud_sex.'","age" : "'.$row->ud_age.'","emailid" : "'.$row->ud_email_id.'","skypeid" : "'.$row->ud_skype_id.'","facetimeid" : "'.$row->ud_facetime_id.'","mobile" : "'.$row->ud_mobile.'","address" : "'.$row->ud_address.'","date" : "'.$row->ud_date.'","status" : "'.$row->ud_status.'" } }';
-		$json 		= '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "Yes","message" : "1" } }';
-	
+	//	$json 		= '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "Yes","message" : "1" } }';
+	$_SESSION['success'] = "Your Patient Details was Updated successfully";
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+		$json =  '{ "serviceresponse" : { "servicename" : "Update Patient Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
-	echo $json;
+//	echo $json;
 // 	exit;
-
-	$_SESSION['success'] = "Your Patient Details was Updated successfully";
+header("Location:patientdetails.php?id=".$patient_id);
+	
+}
+else
+{   
+header("Location: editpatient.php?id=".$patient_id);
 }
 
-header("Location:editpatient.php?id=".$patient_id);
+
 
 ?>

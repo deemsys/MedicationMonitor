@@ -12,7 +12,7 @@ foreach($_POST as $key=>$value)
 }
 
 
-	if(!isset($_POST['Answer']) || trim($_POST['Answer'])=='' && !isset($_POST['question']) || trim($_POST['question'])=='' && !isset($_POST['ansoption']) || trim($_POST['ansoption'])=='')
+	if(!isset($_POST['Answer'])=='' && !isset($_POST['question']) || trim($_POST['question'])=='' && !isset($_POST['ansoption']) || trim($_POST['ansoption'])=='')
 	     $_SESSION['error']["question_$parentans1"] = "Independent Question & Answers - Required Field Can't be blank";
 
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)

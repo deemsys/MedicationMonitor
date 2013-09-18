@@ -12,8 +12,8 @@ include('config.php');
     <div class="container" xmlns="http://www.w3.org/1999/html">
  <ul class="breadcrumb">
         <li><a href="index.php">Home</a> <span class="divider">/</span>
-        <!--li class="active">Appointment</li><span class="divider">/</span></li-->
-        <li class="active">Appointments</li>
+        <!--li class="active"-->Appointment<span class="divider">/</span>
+        <!--li class="active"-->Appointments</li>
         <span>
      <a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a></span>
       </ul>
@@ -23,7 +23,7 @@ include('config.php');
         <!--/span-->
 
 
-        <!--div class="span12"-->
+      
           <div class="row-fluid">
 
            <div class="slate">
