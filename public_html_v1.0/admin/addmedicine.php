@@ -120,7 +120,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                         else
                         {
                           ?>
-                            <input type="text" class="input-medium" <?php valid_check("medicinename")?> name="medicinename" id="medicinename">
+                            <input type="text" class="input-medium"  <?php valid_check("medicinename")?> name="medicinename" id="medicinename">
                             <?php
                         }
                             ?>

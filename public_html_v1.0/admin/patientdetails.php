@@ -149,7 +149,7 @@ $('.clsmedipack .abc').on('click',function(){
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+       
           <div class="row-fluid">
           
           <div class="slate">
@@ -435,7 +435,7 @@ $i=0;
 					<th width="5%"> S.No </th>
 					<th width="40%"> Assessment Name </th>
  					<th width="45%"> Action </th> 
-					<th>  </th>
+					
 				</tr>
 					
 <?php

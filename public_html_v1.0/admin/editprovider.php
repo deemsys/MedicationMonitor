@@ -84,10 +84,10 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
                     	</div>
                 	</div>
 
-            <div class="control-group">
+           <!-- <div class="control-group">
                     <label class="control-label" for="input01">Password</label>
                     <div class="controls">
-                        <input type="password" class="input-medium" value="<?php echo $myaccrecords['ud_password']; ?>" disabled="true" name="pswd" id="pswd">
+                        <input type="password" class="input-medium" value="<?php /*echo $myaccrecords['ud_password']; */?>" disabled="true" name="pswd" id="pswd">
                             </div>
                     </div>
 
@@ -95,9 +95,9 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
             <div class="control-group">
                     <label class="control-label" for="input01">Confirm Password</label>
                     <div class="controls">
-                        <input type="password" class="input-medium" value="<?php echo $myaccrecords['ud_password']; ?>" disabled="true" name="cpswd" id="cpswd">
+                        <input type="password" class="input-medium" value="<?php /*echo $myaccrecords['ud_password']; */?>" disabled="true" name="cpswd" id="cpswd">
                             </div>
-                    </div>
+                    </div>-->
 
                         <div class="control-group">
                             <label class="control-label" for="input01"><span style=" color : red;">*</span>Sex</label>

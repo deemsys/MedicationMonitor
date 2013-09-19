@@ -141,16 +141,16 @@ $('.clsmedipack .abc').on('click',function(){
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span>
-        <a href="javascript:history.go(-1);">Patient Details</a><span class="divider">/</span>
-        <!--li class="active"--><?php echo $patientrecords['pid_patient_username'];?><a></a></li>
+        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
+        <li><a href="javascript:history.go(-1);">Patient Details</a><span class="divider">/</span></li>
+        <li class="active"><?php echo $patientrecords['pid_patient_username'];?><a></a></li>
      <i class="icon-chevron-left pull-right"></i>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        
+        <div class="span12">
           <div class="row-fluid">
           
           <div class="slate">
@@ -601,9 +601,12 @@ else{
 	$query11 = mysql_query($sql11);
 	
 
+$assCount=0;
+
 $noofcheckbox=0;
 		while($assess = mysql_fetch_array($query11))
 		{
+$assCount++;
 $noofcheckbox++;
 ?>
 <td>
@@ -629,7 +632,9 @@ echo "</td>";
 }
 
 }
-
+if ($assCount==0) {
+echo "<td>No assessments found.</td>";
+}
 
 ?>
 	</tr>
@@ -638,7 +643,11 @@ echo "</td>";
 </div>
 		</div>
 	<div class="form-actions">
-		<button type="submit" class="btn btn-primary">Submit</button>
+	<?php if ($assCount>0) { ?>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+	<?php } else { ?>	
+            <button class="btn btn-primary" data-dismiss="modal" type="button">Close</button>
+	<?php } ?>
 		
 	</div>
 	</form>
@@ -783,15 +792,14 @@ echo "</td>";
           </div><!--/row-->
           <!--/row-->
         </div><!--/span-->
-        <hr>
+      </div><!--/row-->
+
+      <hr>
 
       <footer>
         <p>&copy; Medication Monitor 2012</p>
       </footer>
 
-      </div><!--/row-->
-
-      
     </div>
     </div>
     <!--/.fluid-container-->

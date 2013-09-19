@@ -15,7 +15,7 @@ $provider_id = $_POST['provider'];
 
 $noofcheckbox=$_POST['noofcheckbox'];
 
-//$avai=0;
+$avai=0;
 	$sql11 = "SELECT * FROM tbl_patient_details WHERE pid_patient_id ='.$patient_id.'";
 	$records11 = mysql_fetch_array(mysql_query($sql11));
 	 $patname = $records11['pid_patient_username'];
@@ -32,20 +32,21 @@ $k=count($assessment);
 	for($l=0;$l<$k;$l++ )
 	{
  
-		$assdetail ="INSERT INTO tbl_patientassessment_details (pa_patientassessment_patname, pa_patientassessment_patid, pa_patientassessment_providerid, pa_patientassessment_assid, pa_patientassessment_status) VALUES ('".$patname."', '".$patient_id."', '".$provider_id."', '".$assessment[$l]."', '1');";
+ $noofchecks++;
+		$assdetail ="INSERT INTO tbl_patientassessment_details (pa_patientassessment_patname, pa_patientassessment_patid, pa_patientassessment_providerid, pa_patientassessment_assid, pa_patientassessment_status) VALUES ('".$patname."', '".$patient_id."', '0', '".$assessment[$l]."', '1');";
 
 		mysql_query($assdetail);
-        $noofchecks++;
+        
 
 	}
 
 if($noofcheckbox>0&&$noofchecks>0)
 {
-	$_SESSION['success'] = "Your Assign Assessment was Added successfully".mysql_num_rows($sqlcheck12);
+	$_SESSION['success'] = "Your Assign Assessment was Added successfully";
 }
 elseif($avai==0)
 {
-    $_SESSION['error']['noass']="No Assessments assigned to this patient";
+    $_SESSION['error']['noass']="No Assessments assigned to this patient".mysql_num_rows($sqlcheck12);
     unset($_SESSION['success']);
 }
 
