@@ -89,6 +89,8 @@ $datetime = $dailytime.' '.$timeformat;
 
  }
 
+
+$_SESSION["tab_active"]="reminder";
 header("Location:patientdetails.php?id=".$patient_id);
 
 ?>

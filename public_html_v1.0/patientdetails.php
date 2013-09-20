@@ -1,8 +1,13 @@
 <?php
-session_start();
+
 error_reporting(0);
 
+session_start();
+
+
+
 if($_SESSION['userid'] != '')
+
 {
 
 
@@ -150,7 +155,9 @@ $('.clsmedipack .abc').on('click',function(){
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+
+       
+
           <div class="row-fluid">
           
           <div class="slate">
@@ -203,17 +210,72 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
 
 <ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#profile">Profile</a></li>
-<li><a href="#medicine">Medicine</a></li>
-<li><a href="#reminder">Reminder</a></li>
-<li><a href="#assessment">Assessment</a></li>
-<li><a href="#appointment">Appointment</a></li>
-<li><a href="#assoc">Associated Providers</a></li>
+
+ <!--<li
+
+
+     --><?php
+/*
+     if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="profile"))
+         echo 'class="active" id="profile">';
+     else
+         echo '<div class="tab-pane" id="profile">';
+
+     */?>
+
+
+
+<li <?php
+if(!isset($_SESSION["tab_active"]))
+{
+    echo 'class="active"';
+}
+
+ elseif($_SESSION["tab_active"]=="profile")
+ echo 'class="active"';?>
+ ><a href="#profile">Profile</a></li>
+
+<li <?php
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="medicine"))
+    echo 'class="active"';?>
+ ><a href="#medicine">Medicine</a></li>
+
+<li <?php
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="reminder"))
+    echo 'class="active"';?>
+ ><a href="#reminder">Reminder</a></li>
+
+<li <?php
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="assessment"))
+    echo 'class="active"';?>
+ ><a href="#assessment">Assessment</a></li>
+
+<li <?php
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="appointment"))
+    echo 'class="active"';?>
+ ><a href="#appointment">Appointment</a></li>
+
+<li  <?php
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="assoc"))
+    echo 'class="active"';?>
+ ><a href="#assoc">Associated Providers</a></li>
+
 </ul>
 
 
 		<div class="tab-content">
-		<div class="tab-pane active" id="profile">
+
+
+      <?php
+      if(!isset($_SESSION["tab_active"]))
+      {
+          echo '<div class="tab-pane active" id="profile">';
+      }
+      elseif($_SESSION["tab_active"]=="profile")
+            echo '<div class="tab-pane active" id="profile">';
+        else
+            echo '<div class="tab-pane" id="profile">';
+      ?>
 
 			<table class="orders-table table">
 				<tbody>
@@ -296,7 +358,17 @@ if($patientrecords['pid_patient_facetimeid'] !='')
 </div>
 
 
-<div class="tab-pane" id="medicine">
+
+<?php
+
+if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="medicine"))
+   echo '<div class="tab-pane active" id="medicine">';
+else
+    echo '<div class="tab-pane" id="medicine">';
+
+
+?>
+
 
 			<table class="orders-table table">
 				<tbody>
@@ -362,7 +434,20 @@ if($patientrecords['pid_patient_facetimeid'] !='')
 
 </div>
 
-<div class="tab-pane" id="reminder">
+
+
+
+      <!-- <div class="tab-pane" id="reminder">-->
+
+
+           <?php
+
+           if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="reminder"))
+               echo '<div class="tab-pane active" id="reminder">';
+           else
+               echo '<div class="tab-pane" id="reminder">';
+
+           ?>
 
 			<table class="orders-table table">
 				<tbody>
@@ -428,7 +513,19 @@ $i=0;
 			</table>
 
 </div>
-<div class="tab-pane" id="assessment">
+
+<!--<div class="tab-pane" id="assessment">-->
+
+    <?php
+
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="assessment"))
+        echo '<div class="tab-pane active" id="assessment">';
+    else
+        echo '<div class="tab-pane" id="assessment">';
+
+    ?>
+
+
 
 			<table class="orders-table table">
 				<tbody>
@@ -474,7 +571,25 @@ $i=0;
 </div>
 
 
-<div class="tab-pane" id="assoc">
+
+
+
+
+      <?php
+
+      if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="assoc"))
+          echo '<div class="tab-pane active" id="assoc">';
+      else
+          echo '<div class="tab-pane" id="assoc">';
+
+      ?>
+<div class="pull-left">
+
+<a href="#assign" class="btn" data-toggle="modal">Assign Providers</a>
+
+</div><br><br>
+
+
 
 			<table class="orders-table table">
 
@@ -516,7 +631,21 @@ $i=0;
 		</div>
 
 
-<div class="tab-pane" id="appointment">
+
+
+<!--
+<div class="tab-pane" id="appointment">-->
+
+
+    <?php
+
+    if(isset($_SESSION["tab_active"])&& ($_SESSION["tab_active"]=="appointment"))
+        echo '<div class="tab-pane active" id="appointment">';
+    else
+        echo '<div class="tab-pane" id="appointment">';
+
+    ?>
+
 
 			<table class="orders-table table">
 				<tbody>
@@ -927,6 +1056,7 @@ function valdelete(valu)
 <?php
 unset($_SESSION['error']);
 unset($_SESSION['success']);
+unset($_SESSION['tab_active']);
 
 }
 else

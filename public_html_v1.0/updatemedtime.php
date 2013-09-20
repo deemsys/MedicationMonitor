@@ -3,6 +3,8 @@
 // print_r($_POST);
 // print_r($_GET); exit;
 
+error_reporting(0);
+
 session_start();
 
 require("config.php");
@@ -95,17 +97,25 @@ mysql_query($sql);
 	{
 
 		$json 		= '{ "serviceresponse" : { "servicename" : "Medicine Reminder Details", "success" : "Yes","message" : "1" } }';
-	
+
+	    $_SESSION['success'] = "Your Medicine Reminder was Updated successfully";
+
 	}
 	else
 	{
-		echo '{ "serviceresponse" : { "servicename" : "Medicine Reminder Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+
+        $json =  '{ "serviceresponse" : { "servicename" : "Medicine Reminder Details", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+
 	}
 	//echo $json;
  	//exit;
 
-	$_SESSION['success'] = "Your Medicine Reminder was Updated successfully";
 
+
+
+
+
+    $_SESSION["tab_active"]="medicine";
 	header('location:patientdetails.php?id='.$patient_id);
 	exit;
 }

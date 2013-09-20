@@ -70,6 +70,8 @@ $appnotes = $_POST['notes'];
 
  }
 
+$_SESSION["tab_active"]="appointment";
+
 header("Location:patientdetails.php?id=".$patient_id);
 
 ?>

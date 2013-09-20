@@ -28,11 +28,10 @@ switch($type){
 			//echo $json;
 
 		
-
+        $_SESSION["tab_active"]="medicine";
 		header("Location:patientdetails.php?id=".$patient_id1);
-	
-		break;
-	}
+        break;
+    }
 
 	case 'assessment':{
 
@@ -50,8 +49,8 @@ switch($type){
 			}
 			//echo $json;
 
-			
 
+        $_SESSION["tab_active"]="assessment";
 		header("Location:patientdetails.php?id=".$patient_id2);
 	
 		break;
@@ -75,8 +74,8 @@ switch($type){
 			}
 			//echo $json;
 
-		
 
+        $_SESSION["tab_active"]="remainder";
 		header("Location:patientdetails.php?id=".$patient_id3);
 	
 		break;
@@ -98,8 +97,8 @@ switch($type){
 			}
 			//echo $json;
 
-			
 
+        $_SESSION["tab_active"]="appointment";
 		header("Location:patientdetails.php?id=".$patient_id4);
 	
 		break;

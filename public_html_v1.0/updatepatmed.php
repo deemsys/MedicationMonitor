@@ -52,6 +52,12 @@ elseif($avai==0)
 
 
 
+
+
+
+
+$_SESSION["tab_active"]="assessment";
+
 header("Location:patientdetails.php?id=".$patient_id);
 
 ?>

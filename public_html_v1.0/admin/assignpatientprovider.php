@@ -42,7 +42,7 @@ switch($type){
 			//	echo '{ "serviceresponse" : { "servicename" : "Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 			}
 		//	echo $json;
-
+            $_SESSION["tab_active"]="assoc";
 			$_SESSION['success'] = "Provider Assign successfully";
 		}
 		
