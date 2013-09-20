@@ -13,21 +13,21 @@ require("config.php");
 
 
 
-	$update ="DELETE FROM tbl_patient_details WHERE pid_patient_id = ".$patient_id;
+	//$update ="DELETE FROM tbl_patient_details WHERE pid_patient_id = ".$patient_id;
 
-	$updaterel ="DELETE FROM tbl_relationship_details WHERE rs_relation_patientid = ".$patient_id;
-	mysql_query($updaterel);
+	$updaterel ="DELETE FROM tbl_relationship_details WHERE rs_relation_providerid = '".$_SESSION['userid']."' AND rs_relation_patientid = ".$patient_id;
+	//mysql_query($updaterel);
 
-	if(mysql_query($update))
+	if(mysql_query($updaterel))
 	{
 
-	///	$json 		= '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "Yes","message" : "1" } }';
+	$json 		= '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "Yes","message" : "1" } }';
     $_SESSION['success'] = "Your Patient was Deleted successfully";
 	
 	}
 	else
 	{
-	//	echo '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
+	$json =  '{ "serviceresponse" : { "servicename" : "Delete MyPatient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 	}
 //	echo $json;
  	//exit;

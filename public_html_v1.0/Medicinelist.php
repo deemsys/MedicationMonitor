@@ -17,7 +17,7 @@ include('header.php');
     
       <div class="row-fluid">
         <!--/span-->
-        <div class="span12">
+
           <div class="row-fluid">
 
            <div class="slate">
@@ -64,7 +64,7 @@ $num=0;
 	$limit =6;
 	$stages = 3;
 if(isset($_GET['page']))
-	$page =mysql_escape_string($_GET['page']);
+	$page =mysql_real_escape_string($_GET['page']);
 else
     $page=0;
 	if($page)

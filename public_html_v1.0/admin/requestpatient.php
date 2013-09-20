@@ -77,7 +77,7 @@ $sqlreminder = "SELECT COUNT(*) as num FROM tbl_relationship_details WHERE rs_re
 	$stages = 3;
 
 if(isset($_GET['page']))
-    $page =mysql_escape_string($_GET['page']);
+    $page =mysql_real_escape_string($_GET['page']);
 else
     $page=0;
 	if($page)

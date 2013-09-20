@@ -18,7 +18,7 @@ include('header.php');
     
       <div class="row-fluid">
         <!--/span-->
-        <!--div class="span12"-->
+        
           <div class="row-fluid">
 
            <div class="slate">
