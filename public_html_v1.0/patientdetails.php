@@ -599,7 +599,7 @@ $i=0;
 					<th> S.No </th>
 					<th> Provider Name </th>
 					<th> Email id </th>
-					<th> Action </th>
+					<!--<th> Action </th>-->
 				</tr>
 					
 <?php
@@ -616,7 +616,7 @@ $i=0;
 			<td> <?php echo $p+=1; ?> </td>
 			<td> <a href="providerdetails.php?id=<?php echo $recordrelation['ud_user_id']; ?>" ><?php echo $recordrelation['ud_username']; ?> </a></td>
 			<td> <?php echo $recordrelation['ud_email_id']; ?> </td>
-			<td> <a href="javascript:valdelete(<?php echo $recordrelation['rs_relation_id']; ?>);" style="margin-right : 200px;" class="btn"><i class="icon-trash"></i></a> </td>
+			<!--<td> <a href="javascript:valdelete(<?php /*echo $recordrelation['rs_relation_id']; */?>);" style="margin-right : 200px;" class="btn"><i class="icon-trash"></i></a> </td>-->
 
 		</tr>
 

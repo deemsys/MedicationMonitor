@@ -24,8 +24,8 @@ switch($type){
 		//	echo '{ "serviceresponse" : { "servicename" : "Delete Assign Provider", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 		}
 		//echo $json;
-		$_SESSION['success'] = "Delete Assign Provider successfully";
-
+		$_SESSION['success'] = "Delete Assign patient successfully";
+        $_SESSION["tab_active"]="assoc";
 		header("Location:providerdetails.php?id=".$return_id);
 
 		break;
@@ -46,8 +46,8 @@ switch($type){
 		}
 	//	echo $json;
 
-		$_SESSION['success'] = "Delete Assign Patient successfully";
-
+		$_SESSION['success'] = "Delete Assign provider successfully";
+        $_SESSION["tab_active"]="assoc";
 		header("Location:patientdetails.php?id=".$return_id);
 
 		break;

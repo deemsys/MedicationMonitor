@@ -80,7 +80,7 @@ switch($type){
 			//	echo '{ "serviceresponse" : { "servicename" : "Assign Patient", "success" : "No", "username" : "NULL",  "message" : "'.$error.'" } }';
 			}
 			//echo $json;
-
+            $_SESSION["tab_active"]="assoc";
 			$_SESSION['success'] = "Patient Assign successfully";
 		}
 

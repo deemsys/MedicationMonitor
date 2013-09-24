@@ -14,6 +14,50 @@ require("config.php");
 <script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
 
 
+ 
+
+$(document).ready(function(){
+
+ $('#addquest').hide();
+
+  $('#addquestion').click(function(){
+
+ $('#addquest').show();
+
+
+
+});
+
+
+
+
+
+ $('#assign').hide();
+
+  $('#asspati').click(function(){
+
+ $('#assign').show();
+
+
+
+});
+
+
+
+  $('#assremind').click(function(){
+
+ $('#assign').show();
+
+
+
+});
+
+
+
+});
+
+</script>
+
 <script type="text/javascript">
  
 $(document).ready(function(){

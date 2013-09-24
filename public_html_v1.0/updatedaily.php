@@ -42,7 +42,7 @@ while($recordsparentq1 = mysql_fetch_array($queryparentq1))
 if(!isset($_SESSION['error']) && count($_SESSION['error'])<=0)
 {
 
-echo "succ"; exit;
+//echo "succ"; //exit;
 
 	foreach( $_POST as $key => $value )
 	{

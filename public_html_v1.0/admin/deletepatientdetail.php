@@ -75,7 +75,7 @@ switch($type){
 			//echo $json;
 
 
-        $_SESSION["tab_active"]="remainder";
+        $_SESSION["tab_active"]="reminder";
 		header("Location:patientdetails.php?id=".$patient_id3);
 	
 		break;

@@ -15,57 +15,52 @@ require("config.php");
 
 
 <script type="text/javascript">
- 
-$(document).ready(function(){
- 
-    var counter = 1;
- 
-    $("#addButton").click(function () {
-
-	if(counter>10){
-            alert("Only 10 textboxes allow");
-            return false;
-	}   
-	var id = $(this).attr('name');
-//  		var ince += 1;
-	//var dec	= counter - 1;
-var dec = $("#TextBoxesGroup_"+id+".clscounter").length + 1;
-//   alert(counter);
-        var divAfter = "#TextBoxDiv"+dec;
-	var newTextBoxDiv = $(document.createElement('div'))
-		.attr("id", 'TextBoxDiv' + dec).attr("class", 'clscounter');
-
-	newTextBoxDiv.after(divAfter).html('<div class="control-group"><label class="control-label" for="input01">Answer '+ dec + '</label>' + '<div class="controls"><label class="control-label"><input class="input-medium" type="text" name="Answer'+id+'[]" id="Answer'+id+"_"+dec + '" value="" ></label><input type="hidden" name="Ansid'+id+'" value="'+id+'"></div></div>');
 
 
-	newTextBoxDiv.appendTo("#TextBoxesGroup_"+id);
- 
- 
-	counter++;
 
-     });
- 
-     $("#removeButton").live('click',function () {
-	if(counter==1){
-          alert("No more textbox to remove");
-          return false;
-       }   
- 
-	counter--;
- 
-        $("#TextBoxDiv" + counter).remove();
- 
-     });
- 
-     $("#getButtonValue").click(function () {
- 
-	var msg = '';
-	for(i=1; i<counter; i++){
-   	  msg += "\n Answer " + i + " : " + $('#Answer' + i).val();
-	}
-    	  alert(msg);
-     });
-  });
+
+
+
+
+    $(document).ready(function(){
+
+        var counter = 1;
+
+        $("#addButton").click(function () {
+
+            if(counter>10){
+                alert("Only 10 textboxes allow");
+                return false;
+            }
+
+            var dec	= counter - 1;
+            var divAfter = "#TextBoxDiv"+dec;
+            var newTextBoxDiv = $(document.createElement('div'))
+                .attr("id", 'TextBoxDiv' + counter);
+           // alert(divAfter);
+            newTextBoxDiv.after(divAfter).html('<div class="control-group"><label class="control-label" for="input01">Answer '+ counter + '</label>' + '<div class="controls"><label class="control-label"><input class="input-medium" type="text" name="Answer[]" id="Answer'+ counter + '" value="" /><input type="hidden" name="Ansid'+counter+'" value="'+counter+'"></div></div>');
+
+
+            newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+            counter++;
+        });
+
+        $("#removeButton").click(function () {
+            if(counter==2){
+                alert("No more textbox to remove");
+                return false;
+            }
+
+            counter--;
+
+            $("#TextBoxDiv" + counter).remove();
+
+        });
+
+
+    });
 </script>
 
 <script type="text/javascript">
@@ -131,15 +126,15 @@ function getid(quest)
 
  <div class="container">
  <ul class="breadcrumb">
-        <li><a href="index.php">Home</a> <span class="divider">/</span>
-        <!--li class="active"-->Assessment<span class="divider">/</span>
-	<!--li class="active"-->Add Questionnaire</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
+        <li><a href="index.php">Home</a> <span class="divider">/</span></li>
+        <li class="active">Assessment<span class="divider">/</span></li>
+	<li class="active">Add Questionnaire</li><a href="javascript:history.go(-1);"><i class="icon-chevron-left pull-right"></i></a>
       </ul>
     <div class="container-fluid">
     
       <div class="row-fluid">
         <!--/span-->
-        
+        <div class="span12">
           <div class="row-fluid">
           
           <div class="slate">
@@ -237,7 +232,8 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 
           <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $recordsquest['qd_question_name']; ?></td>
+            <!--  <input type="hidden" id=parentquest_id" value="<?php /*echo $recordsquest['qd_question_id']; */?>"
+         -->   <td><?php echo $recordsquest['qd_question_name']; ?></td>
             <td><?php echo $recordsquest['qd_question_type']; ?></td>
             <td><?php echo $countselans; ?></td>
 <?php
@@ -246,7 +242,7 @@ if(isset($_SESSION['success']) && $_SESSION['success']!='')
 	{
 
 ?>
-            <td ><div title="Add Question" class="btn" onclick="getid(<?php echo $recordsquest['qd_question_id']; ?>);" ><i class="icon-plus" value="<?php echo $recordsquest['qd_question_id']; ?>"></i></div>
+            <td ><div title="Add Question" class="btn" onclick="getid(<?php echo $recordsquest['qd_question_id']; ?>);" ><i class="icon-plus" id="parentquest_id" value="<?php echo $recordsquest['qd_question_id']; ?>"></i></div>
 		<a title="Delete Question" href="javascript:validate(<?php echo $recordsquest['qd_question_id']; ?>);" class="btn" ><i class="icon-trash"></i></a></td>
 
 <?php
@@ -321,15 +317,15 @@ else
                         if(isset($_REQUEST['str']))
                         {
                         ?>
-                        <label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="single"> Single Choice</label>
-			<label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="multi"> Multi Choice</label>'
+                        <label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="single"> Single Choice with req str</label>
+			<label class="radio"><input type="radio" name="ansoption_<?php echo $_REQUEST['str']; ?>" value="multi"> Multi Choice with req str</label>'
                         <?php
                         }
                         else
                         {
                         ?>
-                            <label class="radio"><input type="radio" name="ansoption" value="single"> Single Choice</label>
-                            <label class="radio"><input type="radio" name="ansoption"  value="multi"> Multi Choice</label>'
+                            <label class="radio"><input type="radio" name="ansoption_" value="single"> Single Choice</label>
+                            <label class="radio"><input type="radio" name="ansoption_"  value="multi"> Multi Choice</label>'
 
                             <?php
                         }
@@ -341,7 +337,7 @@ else
 
 			<div class="control-group" id='TextBoxesGroup'>
                 <div id="TextBoxDiv1">
-                    <!--?php echo $html; ?-->
+                   <!--?php /*echo $html; */?>-->
                 </div>
                 	</div>
 
