@@ -555,7 +555,7 @@ $i=0;
 			<td> <?php echo $k+=1; ?> </td>
 			<td> <a href="viewpatassessment.php?id=<?php echo $_GET['id'];?>&type=<?php echo $medrecords['pa_patientassessment_assid']; ?>" value="<?php echo $medrecords['pa_patientassessment_id']; ?>"><?php echo $assrecords['ad_assessment_name']; ?> </a></td>
 			<td><a href="deletepatientdetail.php?type=assessment&patid=<?php echo $_GET['id'];?>&id=<?php echo $medrecords['pa_patientassessment_id']; ?>" class="btn" ><i class="icon-trash"></i></a> </td>
-		        <td><a target="_blank" href="/spreadSheet.pl?id=<?php echo $_GET['id'];?>&type=<?php echo $medrecords['pa_patientassessment_assid']; ?>" class="btn" >Spread Sheet</a> </td>
+		    <td><a target="_blank" href="excel.php?id=<?php echo $_GET['id'];?>&type=<?php echo $medrecords['pa_patientassessment_assid']; ?>" class="btn" >Spread Sheet</a> </td>
 		</tr>
 
 <?php

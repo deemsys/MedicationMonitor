@@ -17,8 +17,8 @@ my $qDate = (defined $q->param('dat') && $q->param('dat')) ? $q->param('dat') : 
 
 my $host = 'localhost';
 my $db='medsmoni_medicationmonitor';
-my $pwd='monitor';
-my $user='medsmoni_monitor';
+my $pwd='root';
+my $user='root';
 my $DBH =   DBI->connect("dbi:mysql:$db:$host", "$user", "$pwd");
 if(!$DBH){ print "Error Connecting to the database: $DBI::errstr\n"; }
 
@@ -50,7 +50,7 @@ while (my ($datetime, $quest, $ans, $notes) = $query->fetchrow_array)
 	$i++;
 }
 
-my $outputFile  = '/home/medsmoni/public_html/spreadSheet.xls';
+my $outputFile  = '/code/public_html_v1.0/spreadSheet.xls';
 my $excelFile   = Spreadsheet::WriteExcel->new($outputFile);
 my $worksheet   = $excelFile->add_worksheet();
 my $row         = 2;
@@ -90,6 +90,6 @@ foreach my $datetime (@sortKeys)
 }
 $excelFile->close();
 
-my $url = "http://medsmonit.com/spreadSheet.xls";
+my $url = "http://localhost/code/public_html_v1.0/spreadSheet.xls";
 
 print "Location: $url\n\n";

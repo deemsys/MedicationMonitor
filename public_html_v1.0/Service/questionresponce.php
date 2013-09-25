@@ -90,7 +90,7 @@ switch($case){
 				$json 		= '{ "serviceresponse" : { "servicename" : "Select Question", "success" : "No", "message" : "error" } }';
 			}
 
-			echo $json;
+			//echo $json;
 		break;
 	}
 }
